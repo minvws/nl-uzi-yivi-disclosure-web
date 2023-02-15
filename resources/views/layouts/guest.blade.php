@@ -30,7 +30,7 @@
     <nav data-open-label="Menu" data-close-label="Sluit menu" data-media="(min-width: 60rem)" aria-label="{{__('Main navigation')}}">
         <div>
             <ul>
-                <li><a href="/" aria-current="page">VIEP</a></li>
+                <li><a href="/" aria-current="page">IRMA Disclosure website</a></li>
             </ul>
         </div>
     </nav>

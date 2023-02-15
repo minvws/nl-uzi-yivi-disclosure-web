@@ -30,7 +30,7 @@
     <div>
       <nav aria-label="Hoofdnavigatie">
         <ul>
-            <li><a href="/" aria-current="page">VIEP</a></li>
+            <li><a href="/" aria-current="page">IRMA Disclosure website</a></li>
         </ul>
       </nav>
       <form method="post" action="{{ route('logout') }}" class="line-form">

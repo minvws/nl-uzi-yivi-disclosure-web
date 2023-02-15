@@ -34,4 +34,4 @@ function irmaStart(ura){
         element: '#irma-web-form'
     });
     irmaPopup.start();
-};
+}
