@@ -14,7 +14,7 @@
     <div>
         <h1>hier disclosures</h1>
         <p>Veel text</p>
-        <div id="irma-web-form"></div>
+        <div id="irma-web-form" class="external-component"></div>
 
         <div class="horizontal-scroll">
           <table>
