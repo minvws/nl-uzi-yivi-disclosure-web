@@ -62,6 +62,10 @@ class UziAuthController
                 return redirect()
                     ->route('login')
                     ->with('error', __('Something went wrong with logging in, please try again.'));
+            case 'The provider authorization_endpoint could not be fetched. Make sure your provider has a well known configuration available.':
+                return redirect()
+                    ->route('login')
+                    ->with('error', __('Some of the services are currently not working, please try again later.'));
             default:
                 report($e);
                 abort(500, __('Something went wrong. Please refresh your page and try again.'));

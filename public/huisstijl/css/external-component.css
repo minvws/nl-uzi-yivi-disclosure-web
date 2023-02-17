@@ -1,0 +1,26 @@
+/* Use for external components. This css resets Manon styling. */
+
+/* Plesse note: At the moment his resets the manon styling for the specific irma component. */ 
+/* If new components are added this reset can be expanded */
+
+.external-component {
+	font-family: initial;
+	font-size: initial;
+	line-height: initial;
+	width: auto;
+}
+
+.external-component section > div {
+	width: auto;
+}
+
+.external-component button {
+	display: initial;
+	gap: initial;
+	min-width: initial;
+	min-height: initial;
+	font-family: initial;
+	font-size: initial;
+	line-height: initial;
+	width: auto;
+}

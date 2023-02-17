@@ -10,6 +10,7 @@
     <link rel="preload" href="/huisstijl/fonts/RO-SansWebText-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/huisstijl/fonts/RO-SansWebText-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{{ url('huisstijl/css/app.css') }}">
+    <link rel="stylesheet" href="{{ url('huisstijl/css/external-component.css') }}">
     <link href="/huisstijl/img/favicon.ico" rel="shortcut icon">
     <script defer src="/js/form-help.min.js"></script>
     <script src="{{ url('js/app.js') }}"></script>
@@ -30,7 +31,7 @@
     <div>
       <nav aria-label="Hoofdnavigatie">
         <ul>
-            <li><a href="/" aria-current="page">VIEP</a></li>
+            <li><a href="/" aria-current="page">IRMA Disclosure website</a></li>
         </ul>
       </nav>
       <form method="post" action="{{ route('logout') }}" class="line-form">
