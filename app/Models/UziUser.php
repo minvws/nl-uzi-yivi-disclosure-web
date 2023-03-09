@@ -6,9 +6,8 @@ namespace App\Models;
 
 use Illuminate\Support\Facades\Log;
 use Jose\Easy\ParameterBag;
-use \Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Nette\NotImplementedException;
-
 
 class UziUser implements Authenticatable
 {
@@ -30,7 +29,7 @@ class UziUser implements Authenticatable
     public static function getFromParameterBag(ParameterBag $data): UziUser
     {
         $relations = [];
-        foreach ($data->get('relations') as $relation){
+        foreach ($data->get('relations') as $relation) {
             $relations[] = new UziRelation($relation['entity_name'], $relation['ura'], $relation['roles']);
         }
         return new self(
@@ -47,22 +46,21 @@ class UziUser implements Authenticatable
     public static function deserializeFromJson(string $value): ?UziUser
     {
         $uras = [];
-        try{
+        try {
             $decoded = json_decode($value);
-            foreach ($decoded->uras as $ura){
+            foreach ($decoded->uras as $ura) {
                 $uras[] = new UziRelation($ura->entityName, $ura->ura, $ura->roles);
             }
             return new UziUser(
-                    $decoded->initials,
-                    $decoded->surname,
-                    $decoded->surnamePrefix,
-                    $decoded->uziId,
-                    $decoded->loaAuthn,
-                    $decoded->loaUzi,
-                    $uras
+                $decoded->initials,
+                $decoded->surname,
+                $decoded->surnamePrefix,
+                $decoded->uziId,
+                $decoded->loaAuthn,
+                $decoded->loaUzi,
+                $uras
             );
-        } catch(\Exception $e)
-        {
+        } catch (\Exception $e) {
             report($e);
             Log::info("Trying to reconstruct a uzi user from session failed");
             return null;
@@ -121,7 +119,7 @@ class UziUser implements Authenticatable
     /**
      * Set the token value for the "remember me" session.
      *
-     * @param string $value
+     * @param  string $value
      * @return void
      */
     public function setRememberToken($value): string

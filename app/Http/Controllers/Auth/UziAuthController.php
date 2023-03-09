@@ -5,44 +5,37 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Auth;
 
 use App\Services\Uzi\UziInterface;
-use App\Services\Uzi\UziLoginCallbackHandlerInterface;
-use App\Services\Uzi\UziRequestUserInfoInterface;
-use App\Services\Uzi\OpenIDConnectClient;
-use App\Services\Uzi\UziService;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Jumbojett\OpenIDConnectClientException;
 
 class UziAuthController
 {
     public function __construct(
         protected UziInterface $uziService
-    )
-    {
+    ) {
     }
 
     public function login(Request $request): RedirectResponse
     {
         $user = Auth::user();
-        if($user != null){
+        if ($user != null) {
             dd($user);
         }
 
         $error = $request->query->get("error");
         $error_description = $request->query->get("error_description");
-        if($error != null or $error_description != null){
+        if ($error != null or $error_description != null) {
             return redirect()
-                    ->route('login')
-                    ->with('error', __($error))
-                    ->with('error_description', $error_description);
+                ->route('login')
+                ->with('error', __($error))
+                ->with('error_description', $error_description);
         }
-        try{
+        try {
             $this->uziService->authenticate();
             return $this->uziService->login($request);
-        } catch(Exception $e)
-        {
+        } catch (Exception $e) {
             return $this->handleOpenIdClientException($e);
         }
     }
@@ -55,22 +48,23 @@ class UziAuthController
             case 'User authentication flow failed':
             case 'Error: login_cancelled':
                 return redirect()
-                    ->route('login')
-                    ->with('error', __('Login cancelled'));
+                ->route('login')
+                ->with('error', __('Login cancelled'));
             // If the state incorrect, redirect back to login again.
             case 'Unable to determine state':
                 return redirect()
-                    ->route('login')
-                    ->with('error', __('Something went wrong with logging in, please try again.'));
-            case 'The provider authorization_endpoint could not be fetched. Make sure your provider has a well known configuration available.':
+                ->route('login')
+                ->with('error', __('Something went wrong with logging in, please try again.'));
+            case 'The provider authorization_endpoint could not be fetched.' .
+                'Make sure your provider has a well known configuration available.':
                 return redirect()
-                    ->route('login')
-                    ->with('error', __('Some of the services are currently not working, please try again later.'));
+                ->route('login')
+                ->with('error', __('Some of the services are currently not working, please try again later.'));
             default:
                 report($e);
                 return redirect()
-                    ->route('login')
-                    ->with('error', __('Something went wrong. Please refresh your page and try again.'));
+                ->route('login')
+                ->with('error', __('Something went wrong. Please refresh your page and try again.'));
         }
     }
 }

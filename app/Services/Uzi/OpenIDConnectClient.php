@@ -58,7 +58,7 @@ class OpenIDConnectClient extends \Jumbojett\OpenIDConnectClient
 
     /**
      * @param string $key
-     * @param mixed $value mixed
+     * @param mixed  $value mixed
      */
     protected function setSessionKey($key, $value): void
     {

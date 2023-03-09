@@ -1,6 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Middleware;
+
 use App\Models\UziUser;
 use App\Providers\RouteServiceProvider;
 use Closure;
@@ -12,9 +15,9 @@ class AuthenticateUzi
     public function handle(Request $request, Closure $next)
     {
         $uziUserSerialized = $request->session()->get('uzi', null);
-        if($uziUserSerialized !== null){
+        if ($uziUserSerialized !== null) {
             $uziUser = UziUser::deserializeFromJson($uziUserSerialized);
-            if($uziUser !== null){
+            if ($uziUser !== null) {
                 Auth::setUser($uziUser);
                 return $next($request);
             }

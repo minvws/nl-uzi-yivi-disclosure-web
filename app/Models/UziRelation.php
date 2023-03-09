@@ -7,10 +7,9 @@ namespace App\Models;
 class UziRelation
 {
     public function __construct(
-            public string $entityName,
-            public string $ura,
-            public array $roles
-    ){
-
+        public string $entityName,
+        public string $ura,
+        public array $roles
+    ) {
     }
 }

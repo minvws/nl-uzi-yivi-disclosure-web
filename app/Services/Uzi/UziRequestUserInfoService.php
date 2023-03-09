@@ -17,7 +17,7 @@ class UziRequestUserInfoService implements UziRequestUserInfoInterface
     protected OpenIDConfiguration $openIDConfiguration;
 
     public function __construct(
-            protected string $issuer,
+        protected string $issuer,
         protected UziJweDecryptInterface $jweDecryptService,
     ) {
         $this->openIDConfiguration = $this->getOpenIDConfiguration();
@@ -28,17 +28,18 @@ class UziRequestUserInfoService implements UziRequestUserInfoInterface
      */
     private function getOpenIDConfiguration(): OpenIDConfiguration
     {
-        try{
-            $response = Http::withOptions(["verify"=>false])->get($this->issuer . '/.well-known/openid-configuration');
-        } catch(Exception $e){
+        try {
+            $response = Http::withOptions(["verify" => false])
+                ->get($this->issuer . '/.well-known/openid-configuration');
+        } catch (Exception $e) {
             Log::error('Exception thrown while connecting to oidc server');
             throw $e;
         }
-        if($response->status()>=400){
+        if ($response->status() >= 400) {
             throw new Exception("Unsuccessful status returned for openid-configuration");
         }
         return new OpenIDConfiguration(
-                version: $response->json('version'),
+            version: $response->json('version'),
             tokenEndpointAuthMethodsSupported: $response->json('token_endpoint_auth_methods_supported'),
             claimsParameterSupported: $response->json('claims_parameter_supported'),
             requestParameterSupported: $response->json('request_parameter_supported'),
@@ -78,7 +79,9 @@ class UziRequestUserInfoService implements UziRequestUserInfoInterface
         $jwt = $this->jweDecryptService->decrypt($jwe);
 
         // Verify JWT
-        /** @var Validate $jws */
+        /**
+ * @var Validate $jws
+*/
         $jws = Load::jws($jwt)
             ->algs(['RS256'])
             ->exp()
