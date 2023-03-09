@@ -115,7 +115,7 @@ jobs:
           DB_USERNAME: postgres
           DB_PASSWORD: postgres
           DB_SSLMODE: prefer
-        run: vendor/bin/phpstan analyse
+        run: vendor/bin/phpstan analyse app routes config
     strategy:
       max-parallel: 3
       matrix:
