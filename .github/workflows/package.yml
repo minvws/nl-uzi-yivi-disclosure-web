@@ -39,6 +39,8 @@ jobs:
         run: php artisan route:clear
       - run: 'echo "{ \"version\": \"${{ env.RELEASE_VERSION }}\", \"git_ref\": \"$GITHUB_SHA\"}" > public/version.json'
         shell: bash
+      - name: create dist
+        run: mkdir -p dist
       - name: Make ./storage group writable for, code_owner != run_user
         run: chmod 775 ./storage
       - name: Create tar
