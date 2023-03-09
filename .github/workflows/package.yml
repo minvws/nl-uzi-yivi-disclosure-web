@@ -44,9 +44,9 @@ jobs:
       - name: Make ./storage group writable for, code_owner != run_user
         run: chmod 775 ./storage
       - name: Create tar
-        run: tar -czf harrie3_${{ env.RELEASE_VERSION }}.tar.gz ./app ./bootstrap ./config ./dist ./public ./resources ./routes ./storage ./vendor ./composer.json
+        run: tar -czf ${{ github.event.repository.name }}_${{ env.RELEASE_VERSION }}.tar.gz ./app ./bootstrap ./config ./dist ./public ./resources ./routes ./storage ./vendor ./composer.json
       - name: Upload release tar
         uses: actions/upload-artifact@v3
         with:
-          name: harrie3_${{ env.RELEASE_VERSION }}
-          path: harrie3_${{ env.RELEASE_VERSION }}.tar.gz
+          name: ${{ github.event.repository.name }}_${{ env.RELEASE_VERSION }}
+          path: ${{ github.event.repository.name }}_${{ env.RELEASE_VERSION }}.tar.gz
