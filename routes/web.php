@@ -24,8 +24,8 @@ Route::get('ChangeLanguage/{locale}', function ($locale) {
 
 // FIXME: configure timeout auth session
 Route::middleware(['auth.uzi'])->group(function () {
-    Route::get('/irma-disclosure', [\App\Http\Controllers\IrmaDisclosureController::class, 'disclosures']);
-    Route::post('/disclose', [\App\Http\Controllers\IrmaDisclosureController::class, 'disclose']);
+    Route::get('/irma-disclosure', [\App\Http\Controllers\IrmaController::class, 'disclosures']);
+    Route::post('/disclose', [\App\Http\Controllers\IrmaController::class, 'disclose']);
     Route::post('/irma/start', [\App\Http\Controllers\IrmaController::class, 'start']);
     Route::get('/irma/result', [\App\Http\Controllers\IrmaController::class, 'result']);
 });

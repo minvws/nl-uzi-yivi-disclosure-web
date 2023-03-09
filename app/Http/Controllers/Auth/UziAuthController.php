@@ -41,13 +41,13 @@ class UziAuthController
         try{
             $this->uziService->authenticate();
             return $this->uziService->login($request);
-        } catch(OpenIDConnectClientException $e)
+        } catch(Exception $e)
         {
             return $this->handleOpenIdClientException($e);
         }
     }
 
-    public function handleOpenIdClientException(OpenIDConnectClientException $e): RedirectResponse
+    public function handleOpenIdClientException(Exception $e): RedirectResponse
     {
         switch ($e->getMessage()) {
             // If authentication flow cancelled from uzi pilot
@@ -68,7 +68,9 @@ class UziAuthController
                     ->with('error', __('Some of the services are currently not working, please try again later.'));
             default:
                 report($e);
-                abort(500, __('Something went wrong. Please refresh your page and try again.'));
+                return redirect()
+                    ->route('login')
+                    ->with('error', __('Something went wrong. Please refresh your page and try again.'));
         }
     }
 }

@@ -10,4 +10,5 @@ return [
             'id' => env('UZI_OIDC_CLIENT_ID', ''),
             'decryption_key_path' => env('UZI_OIDC_CLIENT_KEY_PATH', ''),
     ],
+    'internal_irma_url' => env('INTERNAL_IRMA_URL')
 ];

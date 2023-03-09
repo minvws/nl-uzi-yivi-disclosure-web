@@ -12,6 +12,17 @@ use Illuminate\Support\Facades\Http;
 
 class IrmaController
 {
+    public function __construct(
+            protected string $internalIrmaUrl
+    )
+    {
+    }
+
+    public function disclosures(): Factory|View|Application
+    {
+        return view('disclosure');
+    }
+
     public function start(Request $request)
     {
         $requestUraNumber = $request->get("ura");
@@ -37,7 +48,7 @@ class IrmaController
                     ]
                 ]
         ];
-        $resp = Http::post("http://localhost:8088/session", $body)
+        $resp = Http::post($this->internalIrmaUrl . "/session", $body)
             ->throw()
             ->json();
         return ["sessionPtr" => $resp["sessionPtr"]];
