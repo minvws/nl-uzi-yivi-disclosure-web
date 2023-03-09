@@ -71,30 +71,9 @@ jobs:
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
     - name: Create dist folder and dummy files
-      run: mkdir dist/js && touch dist/js/app.js
-    - name: Generate x509 keypair
-      run: openssl req -new -x509 -subj /CN=Ontvanger -keyout ontvanger.key -out ontvanger.pem -nodes
-    - name: Generate x509 keypair (hsm)
-      run: openssl req -new -x509 -subj /CN=Ontvanger -keyout hsm.key -out hsm.pem -nodes
-    - name: Generate x509 keypair (yubi)
-      run: openssl req -new -x509 -subj /CN=Ontvanger -keyout yubi.key -out yubi.pem -nodes
+      run: mkdir -p dist/js && touch dist/js/app.js
     - name: Execute tests (Unit and Feature)
       env:
-        DB_CONNECTION: pgsql
-        DB_HOST: 127.0.0.1
-        DB_PORT: 5432
-        DB_DATABASE: ci_db_test
-        DB_USERNAME: postgres
-        DB_PASSWORD: postgres
-        DB_SSLMODE: prefer
-        PUBKEY_CLIENT: ${{ secrets.PUBKEY_CLIENT }}
-        CERTIFICATE_TEST: ${{ github.workspace }}/ontvanger.pem
-        CERTIFICATE_HSM_TEST: ${{ github.workspace }}/hsm.pem
-        CERTIFICATE_YUBI_TEST: ${{ github.workspace }}/yubi.pem
-        RECIPIENT_CERTIFICATES: ${{ github.workspace }}/hsm.pem,${{ github.workspace }}/yubi.pem
-        KEY_HSM_TEST: ${{ github.workspace }}/hsm.key
-        KEY_YUBI_TEST: ${{ github.workspace }}/yubi.key
-        KEY_TEST: ${{ github.workspace }}/ontvanger.key
-        LOCAL_KEY: ${{ secrets.LOCAL_KEY }}
+        KEY: value
       run: vendor/bin/phpunit --coverage-clover branie_php_clover.xml
 
