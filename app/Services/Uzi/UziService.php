@@ -83,6 +83,9 @@ class UziService implements UziInterface
             ->iss($this->oidc->getIssuer())
             ->keyset($this->getJwkSet());
 
+        /**
+        * @psalm-suppress UndefinedMethod
+        */
         $jwt = $jws->run();
 
         return UziUser::getFromParameterBag($jwt->claims);
