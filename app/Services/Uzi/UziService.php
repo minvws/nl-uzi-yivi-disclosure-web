@@ -8,6 +8,7 @@ use App\Exceptions\UziNoUziNumberException;
 use App\Models\UziUser;
 use App\Providers\RouteServiceProvider;
 use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Client\RequestException;
@@ -45,13 +46,13 @@ class UziService implements UziInterface
     /**
      * @throws OpenIDConnectClientException
      * @throws RequestException
-     * @throws UziNoUziNumberException
+     * @throws AuthorizationException
      */
     public function login(Request $request): RedirectResponse
     {
         $uziResponse = $this->fetchUserInfo();
-        if (empty($uziResponse->uziId)) {
-            throw new UziNoUziNumberException();
+        if (empty($uziResponse)) {
+            throw new AuthorizationException("Empty userinfo");
         }
 
         $request->session()->put('uzi', json_encode($uziResponse));
@@ -63,7 +64,7 @@ class UziService implements UziInterface
      * @throws OpenIDConnectClientException
      * @throws Exception
      */
-    private function fetchUserInfo(): UziUser
+    private function fetchUserInfo(): UziUser | NULL
     {
         // Get user info endpoint
         $jwe = Http::withToken($this->oidc->getAccessToken())
@@ -75,19 +76,18 @@ class UziService implements UziInterface
 
         // Decrypt jwe to jwt
         $jwt = $this->uziJweDecryptService->decrypt($jwe);
-
         // Verify JWT
         $jws = Load::jws($jwt)
             ->algs(['RS256'])
             ->exp()
             ->iss($this->oidc->getIssuer())
+            ->aud($this->oidc->getClientID())
             ->keyset($this->getJwkSet());
 
         /**
         * @psalm-suppress UndefinedMethod
         */
         $jwt = $jws->run();
-
         return UziUser::getFromParameterBag($jwt->claims);
     }
 

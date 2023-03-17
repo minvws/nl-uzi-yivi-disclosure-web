@@ -60,6 +60,10 @@ class UziAuthController
                 return redirect()
                 ->route('login')
                 ->with('error', __('Some of the services are currently not working, please try again later.'));
+            case 'Empty userinfo':
+                return redirect()
+                ->route('login')
+                ->with('error', __('Unauthorized'));
             default:
                 report($e);
                 return redirect()
