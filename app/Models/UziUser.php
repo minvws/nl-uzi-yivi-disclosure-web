@@ -26,23 +26,24 @@ class UziUser implements Authenticatable
         }
     }
 
-    public static function getFromParameterBag(ParameterBag $data): UziUser | NULL
+    public static function getFromParameterBag(ParameterBag $data): UziUser | null
     {
         $required_keys = array("relations", "initials", "surname", "surname_prefix", "uzi_id", "loa_authn", "loa_uzi");
         $missing_keys = array();
         foreach ($required_keys as &$key) {
-            if(!$data->has($key)){
+            if (!$data->has($key)) {
                 $missing_keys[] = $key;
             }
         }
-        if(count($missing_keys) > 0){
-            return NULL;
+        if (count($missing_keys) > 0) {
+            return null;
         }
-        if(
+        if (
                 !$data->has('relations')
                 or !$data->has('i')
-        )
-        $relations = [];
+        ) {
+            $relations = [];
+        }
         foreach ($data->get('relations') as $relation) {
             $relations[] = new UziRelation($relation['entity_name'], $relation['ura'], $relation['roles']);
         }

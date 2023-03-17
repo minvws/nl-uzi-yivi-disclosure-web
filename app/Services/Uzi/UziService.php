@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Services\Uzi;
 
-use App\Exceptions\UziNoUziNumberException;
 use App\Models\UziUser;
 use App\Providers\RouteServiceProvider;
 use Exception;
@@ -64,7 +63,7 @@ class UziService implements UziInterface
      * @throws OpenIDConnectClientException
      * @throws Exception
      */
-    private function fetchUserInfo(): UziUser | NULL
+    private function fetchUserInfo(): UziUser | null
     {
         // Get user info endpoint
         $jwe = Http::withToken($this->oidc->getAccessToken())
