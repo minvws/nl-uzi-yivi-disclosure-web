@@ -1,6 +1,6 @@
 'use strict';
 
-function irmaStart(ura){
+function irmaStart(ura, title){
     const token = document.getElementsByName("_token")[0].value
     let options = {
         // Developer options
@@ -9,7 +9,7 @@ function irmaStart(ura){
         // Front-end options
         language:  'en',
         translations: {
-            header:  'Uzipoc login',
+            header: title,
             loading: 'Just one second please!'
         },
 

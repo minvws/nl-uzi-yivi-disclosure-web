@@ -31,7 +31,7 @@
                 <td>
                   <div>
                         @csrf
-                        <input type="button" value="Inladen" onclick="irmaStart({{ $ura->ura }})"></button>
+                        <input type="button" value="Inladen" onclick="irmaStart({{ $ura->ura }}, 'Scan QR code om uw rollen te laden voor {{ $ura->entityName }}')"></button>
                   </div>
                 </td>
               </tr>
