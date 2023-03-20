@@ -12,9 +12,20 @@ class OpenIDConnectClient extends \Jumbojett\OpenIDConnectClient
     /**
      * @throws OpenIDConnectClientException
      */
+    public function getProviderStringConfigValue($key): string
+    {
+        $value = $this->getProviderConfigValue($key);
+        if (!is_string($value)) {
+            throw new \Exception("invalid value");
+        }
+        return $value;
+    }
+    /**
+     * @throws OpenIDConnectClientException
+     */
     public function getUserinfoEndpoint(): string
     {
-        return $this->getProviderConfigValue("userinfo_endpoint");
+        return $this->getProviderStringConfigValue("userinfo_endpoint");
     }
 
     /**
@@ -22,7 +33,7 @@ class OpenIDConnectClient extends \Jumbojett\OpenIDConnectClient
      */
     public function getIssuer(): string
     {
-        return $this->getProviderConfigValue("issuer");
+        return $this->getProviderStringConfigValue("issuer");
     }
 
     /**
@@ -30,7 +41,7 @@ class OpenIDConnectClient extends \Jumbojett\OpenIDConnectClient
      */
     public function getJwksUri(): string
     {
-        return $this->getProviderConfigValue("jwks_uri");
+        return $this->getProviderStringConfigValue("jwks_uri");
     }
 
 
@@ -58,7 +69,7 @@ class OpenIDConnectClient extends \Jumbojett\OpenIDConnectClient
 
     /**
      * @param string $key
-     * @param mixed $value mixed
+     * @param mixed  $value mixed
      */
     protected function setSessionKey($key, $value): void
     {

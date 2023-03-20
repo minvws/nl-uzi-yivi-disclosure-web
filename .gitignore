@@ -6,6 +6,7 @@
 /public/css
 /public/build
 /env
+/vendor
 .env
 .env.backup
 .env.testing

@@ -18,12 +18,13 @@ use RuntimeException;
 class UziJweDecryptService implements UziJweDecryptInterface
 {
     public function __construct(
-            protected string $decryptionKeyPath,
+        protected string $decryptionKeyPath,
     ) {
     }
 
     /**
      * Decrypts the given JWE and returns JWT.
+     *
      * @throws RuntimeException
      */
     public function decrypt(string $jwe): string
@@ -34,7 +35,7 @@ class UziJweDecryptService implements UziJweDecryptInterface
         $contentEncryptionAlgorithmManager = new AlgorithmManager([new A128CBCHS256()]);
         $compressionMethodManager = new CompressionMethodManager([new Deflate()]);
         $jweDecrypter = new JWEDecrypter(
-                $keyEncryptionAlgorithmManager,
+            $keyEncryptionAlgorithmManager,
             $contentEncryptionAlgorithmManager,
             $compressionMethodManager
         );

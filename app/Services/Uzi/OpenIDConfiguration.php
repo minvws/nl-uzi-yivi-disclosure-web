@@ -7,7 +7,7 @@ namespace App\Services\Uzi;
 class OpenIDConfiguration
 {
     public function __construct(
-            public string $version = '',
+        public string $version = '',
         public array $tokenEndpointAuthMethodsSupported = [],
         public bool $claimsParameterSupported = false,
         public bool $requestParameterSupported = false,

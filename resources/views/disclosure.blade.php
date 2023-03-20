@@ -1,5 +1,3 @@
-@inject('ctrl', 'App\Http\Controllers\IrmaDisclosureController')
-
 @extends('layouts.app')
 @section('content')
 <section class="disclosure">
