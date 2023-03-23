@@ -15,7 +15,7 @@ function irmaStart(ura, title){
 
         // Back-end options
         session: {
-            url: 'http://localhost:8000/irma',
+            url: '/irma',
             start: {
                 url: o => `${o.url}/start`,
                 method: 'POST',
