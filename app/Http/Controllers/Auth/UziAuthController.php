@@ -8,7 +8,6 @@ use App\Services\Uzi\UziInterface;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class UziAuthController
 {
