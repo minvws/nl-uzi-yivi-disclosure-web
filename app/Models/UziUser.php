@@ -16,7 +16,7 @@ class UziUser implements Authenticatable
         public string $surname,
         public string $surnamePrefix,
         public string $uziId,
-        public string $loaAuthn,
+        public string|null $loaAuthn,
         public string $loaUzi,
         public array $uras,
         public string $email = ''
@@ -28,7 +28,7 @@ class UziUser implements Authenticatable
 
     public static function getFromParameterBag(ParameterBag $data): UziUser | null
     {
-        $required_keys = array("relations", "initials", "surname", "surname_prefix", "uzi_id", "loa_authn", "loa_uzi");
+        $required_keys = array("relations", "initials", "surname", "surname_prefix", "uzi_id", "loa_uzi");
         $missing_keys = array();
         foreach ($required_keys as &$key) {
             if (!$data->has($key)) {
@@ -52,7 +52,7 @@ class UziUser implements Authenticatable
             surname: $data->get('surname'),
             surnamePrefix: $data->get('surname_prefix'),
             uziId: $data->get('uzi_id'),
-            loaAuthn: $data->get('loa_authn'),
+            loaAuthn: $data->has('loa_authn') ? $data->get('loa_authn') : null,
             loaUzi: $data->get('loa_uzi'),
             uras: $relations
         );
