@@ -8,7 +8,6 @@ use App\Services\Uzi\UziInterface;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class UziAuthController
 {
@@ -19,11 +18,6 @@ class UziAuthController
 
     public function login(Request $request): RedirectResponse
     {
-        $user = Auth::user();
-        if ($user != null) {
-            dd($user);
-        }
-
         $error = $request->query->get("error");
         $error_description = $request->query->get("error_description");
         if ($error != null or $error_description != null) {
@@ -46,7 +40,7 @@ class UziAuthController
             // If authentication flow cancelled from uzi pilot
             // If authentication flow cancelled from chosen authentication provider
             case 'User authentication flow failed':
-            case 'Error: login_cancelled':
+            case 'login_cancelled':
                 return redirect()
                 ->route('login')
                 ->with('error', __('Login cancelled'));
