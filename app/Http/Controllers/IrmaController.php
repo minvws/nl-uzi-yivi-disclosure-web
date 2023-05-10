@@ -27,12 +27,13 @@ class IrmaController
     {
         $requestUraNumber = $request->get("ura");
         $user = Auth::user();
-        $ura = array_filter(
+        $uras = array_filter(
             $user->uras,
             function ($currentUra) use ($requestUraNumber) {
                 return $currentUra->ura == $requestUraNumber;
             }
-        )[0];
+        );
+        $ura = reset($uras);
         $body = [
                 "@context" => "https://irma.app/ld/request/issuance/v2",
                 "credentials" => [[
