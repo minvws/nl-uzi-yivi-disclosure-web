@@ -12,9 +12,9 @@ use Nette\NotImplementedException;
 class UziUser implements Authenticatable
 {
     public function __construct(
-        public string $initials,
-        public string $surname,
-        public string $surnamePrefix,
+        public string|null $initials,
+        public string|null $surname,
+        public string|null $surnamePrefix,
         public string $uziId,
         public string|null $loaAuthn,
         public string $loaUzi,

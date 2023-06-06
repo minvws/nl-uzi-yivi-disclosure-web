@@ -39,7 +39,7 @@ class IrmaController
                 "credentials" => [[
                         "credential" => "irma-demo.uzipoc-cibg.uzi-2",
                         "attributes" => [
-                                "initials" => $user->initials,
+                            "initials" => $user->initials,
                             "surnamePrefix" => $user->surnamePrefix,
                             "surname" => $user->surname,
                             "entityName" => $ura->entityName,
