@@ -12,9 +12,10 @@ use Nette\NotImplementedException;
 class UziUser implements Authenticatable
 {
     public function __construct(
-        public string $initials,
-        public string $surname,
-        public string $surnamePrefix,
+        public string|null $initials,
+        public string|null $surname,
+        public string|null $surnamePrefix,
+        public string|null $commonName,
         public string $uziId,
         public string|null $loaAuthn,
         public string $loaUzi,
@@ -51,6 +52,7 @@ class UziUser implements Authenticatable
             initials: $data->get('initials'),
             surname: $data->get('surname'),
             surnamePrefix: $data->get('surname_prefix'),
+            commonName: $data->get('common_name'),
             uziId: $data->get('uzi_id'),
             loaAuthn: $data->has('loa_authn') ? $data->get('loa_authn') : null,
             loaUzi: $data->get('loa_uzi'),
@@ -70,6 +72,7 @@ class UziUser implements Authenticatable
                 $decoded->initials,
                 $decoded->surname,
                 $decoded->surnamePrefix,
+                $decoded->commonName,
                 $decoded->uziId,
                 $decoded->loaAuthn,
                 $decoded->loaUzi,
