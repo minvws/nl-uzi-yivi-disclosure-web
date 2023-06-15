@@ -11,7 +11,7 @@
     </section>
     @endif
     <div>
-        <h1>Welkom bij YIVI</h1>
+        <h1>UZI kaartjes uitdeelservice</h1>
         <p class="emphasized">Op deze website kan je kaartjes inladen in je YIVI-app voor alle zorgplatformen waar je toegang voor krijgt vanuit het UZI-register.</p>
         <p>Het laden van deze kaartjes in een wallet-app biedt zorgverleners efficiënte identiteitsverificatie, directe toegang tot relevante medische informatie, verbeterde gegevensnauwkeurigheid en vereenvoudigde administratieve processen. </p>
         <p>Dit resulteert in tijdbesparing, verbeterde besluitvorming, verhoogde efficiëntie en een betere zorgervaring voor zowel zorgverleners als patiënten.</p>

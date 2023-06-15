@@ -17,10 +17,13 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: '16'
           cache: 'npm'
+          registry-url: 'https://npm.pkg.github.com'
       - name: Install npm dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.REPO_READ_ONLY_TOKEN }}
       - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
