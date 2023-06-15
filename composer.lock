@@ -8932,16 +8932,16 @@
         },
         {
             "name": "nunomaduro/larastan",
-            "version": "2.5.1",
+            "version": "v2.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/larastan.git",
-                "reference": "072e2c9566ae000bf66c92384fc933b81885244b"
+                "reference": "73e5be5f5c732212ce6ca77ffd2753a136f36a23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/larastan/zipball/072e2c9566ae000bf66c92384fc933b81885244b",
-                "reference": "072e2c9566ae000bf66c92384fc933b81885244b",
+                "url": "https://api.github.com/repos/nunomaduro/larastan/zipball/73e5be5f5c732212ce6ca77ffd2753a136f36a23",
+                "reference": "73e5be5f5c732212ce6ca77ffd2753a136f36a23",
                 "shasum": ""
             },
             "require": {
@@ -8955,7 +8955,7 @@
                 "illuminate/support": "^9.47.0 || ^10.0.0",
                 "php": "^8.0.2",
                 "phpmyadmin/sql-parser": "^5.6.0",
-                "phpstan/phpstan": "~1.10.3"
+                "phpstan/phpstan": "~1.10.6"
             },
             "require-dev": {
                 "nikic/php-parser": "^4.15.2",
@@ -9004,7 +9004,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nunomaduro/larastan/issues",
-                "source": "https://github.com/nunomaduro/larastan/tree/2.5.1"
+                "source": "https://github.com/nunomaduro/larastan/tree/v2.6.3"
             },
             "funding": [
                 {
@@ -9024,7 +9024,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-03-04T23:46:40+00:00"
+            "time": "2023-06-13T21:39:27+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -9304,16 +9304,16 @@
         },
         {
             "name": "phpmyadmin/sql-parser",
-            "version": "5.7.0",
+            "version": "5.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmyadmin/sql-parser.git",
-                "reference": "0f5895aab2b6002d00b6831b60983523dea30bff"
+                "reference": "db1b3069b5dbc220d393d67ff911e0ae76732755"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmyadmin/sql-parser/zipball/0f5895aab2b6002d00b6831b60983523dea30bff",
-                "reference": "0f5895aab2b6002d00b6831b60983523dea30bff",
+                "url": "https://api.github.com/repos/phpmyadmin/sql-parser/zipball/db1b3069b5dbc220d393d67ff911e0ae76732755",
+                "reference": "db1b3069b5dbc220d393d67ff911e0ae76732755",
                 "shasum": ""
             },
             "require": {
@@ -9387,7 +9387,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2023-01-25T10:43:40+00:00"
+            "time": "2023-06-05T18:19:38+00:00"
         },
         {
             "name": "phpstan/phpdoc-parser",
@@ -9436,16 +9436,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.5",
+            "version": "1.10.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "1fb6f494d82455151ecf15c5c191923f5d84324e"
+                "reference": "af5a296ff02610c1bfb4ddfac9fd4a08657b9046"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/1fb6f494d82455151ecf15c5c191923f5d84324e",
-                "reference": "1fb6f494d82455151ecf15c5c191923f5d84324e",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/af5a296ff02610c1bfb4ddfac9fd4a08657b9046",
+                "reference": "af5a296ff02610c1bfb4ddfac9fd4a08657b9046",
                 "shasum": ""
             },
             "require": {
@@ -9474,8 +9474,11 @@
                 "static analysis"
             ],
             "support": {
+                "docs": "https://phpstan.org/user-guide/getting-started",
+                "forum": "https://github.com/phpstan/phpstan/discussions",
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/1.10.5"
+                "security": "https://github.com/phpstan/phpstan/security/policy",
+                "source": "https://github.com/phpstan/phpstan-src"
             },
             "funding": [
                 {
@@ -9491,7 +9494,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-07T16:48:45+00:00"
+            "time": "2023-06-14T15:26:58+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
