@@ -1,14 +1,25 @@
 **Introduction:**
-This is the client of the uzi application. It represents de zorgaanbieder as a user interface.
+This irma-disclosure repository is the frontend for disclosing [Yivi](https://yivi.app) attributes. For additional information about the uzi project, check the coordination repo at https://github.com/minvws/nl-rdo-uzi-coordination Make
 
 **Get up and running:**
-1. Copy the ```.env.example``` and name it ```.env```
-2. Generate a key in the .env file with ```php artisan key:generate```
-3. Install the needed dependencies with ```Composer install```
-4. Run the application with ```php artisan serve```
+The easiest way to get the uzi project running is to run the "make setup" command from the coordination repository. This will automatically run the "make setup" of all project. You also have the option to run "make setup" command manually for each project.
+
+Manual setup of this project
+1. Run ```make setup``` 
+(outcomment the github token if you havent configured a token for the GitHub `npm.pkg.github.com` private npm packages yet)
+
+2. Run ```make run``` to start the php application
 
 **Additional Information:**
-- 
+- All functionality of this client will only work if all other uzi projects are also running including the docker environments.
 
 **Conclusion:**
-Following the steps outlined in this documentation, you can will successfully have your webserver running on the port given in the .env file. If you havent changed any settings this will be https://localhost:8000
+After the configurations above all functionality should be working and without changing configuration your client website should be available on localhost:8000.
+
+# Technical overview
+![UZI-inlogmiddelen flows-combination-flow-diagram](https://user-images.githubusercontent.com/12181969/229889972-aba96faf-34ba-4283-8c20-e9fcf558032f.png)
+
+
+# Certificates
+- Check the coordination repo for needed certificates and how to configure them.
+Note: the make setup command in the coordination repo should do this automatically

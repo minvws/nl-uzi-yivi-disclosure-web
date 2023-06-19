@@ -4,7 +4,7 @@ setup:
 	cp .env.example .env
 	composer install
 	php artisan key:generate
-	echo "//npm.pkg.github.com/:_authToken=$(TOKEN)"  >> ~/.npmrc
+	# echo "//npm.pkg.github.com/:_authToken=$(TOKEN)"  >> ~/.npmrc
 	npm install
 	npm run dev
 
