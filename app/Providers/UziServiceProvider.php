@@ -27,7 +27,7 @@ class UziServiceProvider extends ServiceProvider
         $this->app->singleton(
             IrmaController::class,
             function () {
-                return new IrmaController(config('uzi.internal_irma_url'));
+                return new IrmaController(config('uzi.internal_irma_url'), config('uzi.irma_disclosure_prefix'));
             }
         );
     }

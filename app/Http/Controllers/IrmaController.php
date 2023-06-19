@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Http;
 class IrmaController
 {
     public function __construct(
-        protected string $internalIrmaUrl
+        protected string $internalIrmaUrl,
+        protected string $irmaDisclosurePrefix,
     ) {
     }
 
@@ -37,7 +38,8 @@ class IrmaController
         $body = [
                 "@context" => "https://irma.app/ld/request/issuance/v2",
                 "credentials" => [[
-                        "credential" => "irma-demo.uzipoc-cibg.uzi-2",
+                        "credential" => $this->irmaDisclosurePrefix,
+                        "revocationKey" => "uziId-" . $user->uziId . "-ura-" . $user->ura,
                         "attributes" => [
                             "initials" => $user->initials,
                             "surnamePrefix" => $user->surnamePrefix,
