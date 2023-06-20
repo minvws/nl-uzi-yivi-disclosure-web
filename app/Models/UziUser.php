@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Exception;
 use Illuminate\Support\Facades\Log;
 use Jose\Easy\ParameterBag;
 use Illuminate\Contracts\Auth\Authenticatable;
-use Nette\NotImplementedException;
+use RuntimeException;
 
 class UziUser implements Authenticatable
 {
@@ -75,7 +76,7 @@ class UziUser implements Authenticatable
                 $decoded->loaUzi,
                 $uras
             );
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             report($e);
             Log::info("Trying to reconstruct a uzi user from session failed");
             return null;
@@ -118,7 +119,7 @@ class UziUser implements Authenticatable
      */
     public function getAuthPassword(): string
     {
-        throw new NotImplementedException("Uzi uses can't have a password");
+        throw new RuntimeException("Uzi uses can't have a password");
     }
 
     /**
@@ -128,7 +129,7 @@ class UziUser implements Authenticatable
      */
     public function getRememberToken(): string
     {
-        throw new NotImplementedException("Do not remember cookie's");
+        throw new RuntimeException("Do not remember cookie's");
     }
 
     /**
@@ -137,9 +138,9 @@ class UziUser implements Authenticatable
      * @param  string $value
      * @return void
      */
-    public function setRememberToken($value): string
+    public function setRememberToken($value): void
     {
-        throw new NotImplementedException("Do not remember cookie's");
+        throw new RuntimeException("Do not remember cookie's");
     }
 
     /**
@@ -149,6 +150,6 @@ class UziUser implements Authenticatable
      */
     public function getRememberTokenName(): string
     {
-        throw new NotImplementedException("Do not remember cookie's");
+        throw new RuntimeException("Do not remember cookie's");
     }
 }

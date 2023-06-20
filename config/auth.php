@@ -39,8 +39,7 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
+            'driver' => 'oidc',
         ],
     ],
 
@@ -62,15 +61,7 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\User::class,
-        ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        // No provider needed
     ],
 
     /*

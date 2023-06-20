@@ -11,6 +11,7 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Client\RequestException;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Jose\Component\Core\JWKSet;
 use Jose\Easy\Load;
@@ -49,12 +50,12 @@ class UziService implements UziInterface
      */
     public function login(Request $request): RedirectResponse
     {
-        $uziResponse = $this->fetchUserInfo();
-        if (empty($uziResponse)) {
+        $uziUser = $this->fetchUserInfo();
+        if ($uziUser === null) {
             throw new AuthorizationException("Empty userinfo");
         }
 
-        $request->session()->put('uzi', json_encode($uziResponse));
+        Auth::setUser($uziUser);
         return new RedirectResponse(RouteServiceProvider::HOME);
     }
 

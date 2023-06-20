@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-// use Illuminate\Support\Facades\Gate;
+use App\Services\Uzi\UziAuthGuard;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Auth;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -27,6 +28,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Auth::extend('oidc', function ($app, $name, array $config) {
+            return new UziAuthGuard($app->make('session')->driver());
+        });
     }
 }

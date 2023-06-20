@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\UziAuthController;
+use App\Http\Controllers\IrmaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Config;
 
@@ -24,18 +27,22 @@ Route::get('ChangeLanguage/{locale}', function ($locale) {
     return redirect()->back();
 })->name('changelang');
 
-// FIXME: configure timeout auth session
-Route::middleware(['auth.uzi'])->group(function () {
-    Route::get('/irma-disclosure', [\App\Http\Controllers\IrmaController::class, 'disclosures']);
-    Route::post('/disclose', [\App\Http\Controllers\IrmaController::class, 'disclose']);
-    Route::post('/irma/start', [\App\Http\Controllers\IrmaController::class, 'start']);
-    Route::get('/irma/result', [\App\Http\Controllers\IrmaController::class, 'result']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/irma-disclosure', [IrmaController::class, 'disclosures']);
+    Route::post('/disclose', [IrmaController::class, 'disclose']);
+    Route::post('/irma/start', [IrmaController::class, 'start']);
+    Route::get('/irma/result', [IrmaController::class, 'result']);
+
+    Route::post('/logout', [AuthController::class, 'logout'])
+        ->name('logout');
 });
 
-Route::get('/uzi-login', [\App\Http\Controllers\Auth\UziAuthController::class, 'login'])
+Route::get('/oidc/login', [UziAuthController::class, 'login'])
                 ->middleware(['guest'])
                 ->name('uzi.login');
 
-Route::get('/', function () {
-    return redirect('/irma-disclosure');
-});
+Route::redirect('/', '/irma-disclosure');
+
+Route::get('/login', [AuthController::class, 'login'])
+    ->middleware(['guest'])
+    ->name('login');
