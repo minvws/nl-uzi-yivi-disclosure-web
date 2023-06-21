@@ -1,1 +1,1 @@
-<a href="#main-content" class="button focus-only">{{ __('Skip to content') }}</a>
+<a href="#main-content" class="button skip-to-content">{{ __('Skip to content') }}</a>

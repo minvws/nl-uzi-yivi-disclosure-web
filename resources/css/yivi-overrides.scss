@@ -1,8 +1,16 @@
-.yivi-web-centered {
-    display: block;
+.yivi-web-form {
+    align-items: stretch;
 }
 
-.yivi-web-form {
+.yivi-web-header, .yivi-web-centered {
     align-items: center;
-    justify-content: center;
+}
+
+.yivi-web-close {
+    min-height: 0;
+}
+
+
+.yivi-web-form .yivi-web-header .yivi-web-close {
+    background-color: #484747;
 }

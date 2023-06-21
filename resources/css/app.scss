@@ -2,25 +2,7 @@ $ro-font-path: "@minvws/nl-rdo-rijksoverheid-ui-theme/fonts";
 $ro-img-path: "@minvws/nl-rdo-rijksoverheid-ui-theme/img";
 
 @import "@minvws/nl-rdo-rijksoverheid-ui-theme/scss/main";
-@import "external-component.css";
+
+// Import yivi Styling
+@import "@privacybydesign/yivi-css/src";
 @import "yivi-overrides";
-
-
-/* Overrides on Manon */
-template {
-    display: none;
-}
-
-/* Actions */
-section > div .actions,
-article > div .actions {
-    display: flex;
-    align-content: center;
-    justify-content: flex-end;
-}
-
-section > div .actions > *,
-article > div .actions > * {
-    margin-left: 1rem;
-}
-

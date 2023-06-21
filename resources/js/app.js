@@ -2,7 +2,9 @@ import './bootstrap';
 
 import '@minvws/manon/collapsible';
 import { onDomReady } from '@minvws/manon/utils';
-import * as Yivi from '@privacybydesign/yivi-frontend';
+import YiviPopup from '@privacybydesign/yivi-popup';
+import YiviCore from '@privacybydesign/yivi-core';
+import YiviClient from '@privacybydesign/yivi-client';
 
 onDomReady(initYiviButtons);
 
@@ -31,11 +33,6 @@ function initYiviButton(button)
         return;
     }
 
-    if (isEmpty(title)) {
-        console.error("Missing data-yivi-title attribute on button");
-        return;
-    }
-
     if (isEmpty(csrfToken)) {
         console.error("Missing data-csrf-token attribute on button");
         return;
@@ -56,16 +53,14 @@ function initYiviButton(button)
  */
 function yiviStart(ura, title, csrfToken)
 {
-    let options = {
+    const yivi = new YiviCore({
+        element: '#yivi-web-form',
+
         // Developer options
-        debugging: true,
+        debugging: import.meta.env.DEV,
 
         // Front-end options
-        language:  'en',
-        translations: {
-            header: title,
-            loading: 'Just one second please!'
-        },
+        language:  document.documentElement.lang,
 
         // Back-end options
         session: {
@@ -81,13 +76,11 @@ function yiviStart(ura, title, csrfToken)
             },
             result: false
         }
-    };
-
-    const yiviPopup = Yivi.newPopup({
-        ...options,
-        element: '#yivi-web-form'
     });
-    yiviPopup.start();
+
+    yivi.use(YiviPopup);
+    yivi.use(YiviClient);
+    yivi.start();
 }
 
 /**

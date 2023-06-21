@@ -30,7 +30,7 @@
                         <td>@foreach ($ura->roles as $role){{ $role }}<br> @endforeach</td>
                         <td>
                             <div>
-                                <button data-yivi-start-button data-csrf-token="{{ csrf_token() }}" data-yivi-ura="{{ $ura->ura }}" data-yivi-title="Scan QR code om uw rollen te laden voor {{ $ura->entityName }}" type="button">Inladen</button>
+                                <button data-yivi-start-button data-csrf-token="{{ csrf_token() }}" data-yivi-ura="{{ $ura->ura }}" type="button">Inladen</button>
                             </div>
                         </td>
                     </tr>
