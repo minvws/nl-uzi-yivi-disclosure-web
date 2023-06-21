@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\IrmaStartRequest;
 use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\JsonResponse;
 use Illuminate\View\Factory;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class IrmaController
@@ -24,22 +24,17 @@ class IrmaController
         return view('disclosure');
     }
 
-    public function start(Request $request)
+    public function start(IrmaStartRequest $request): JsonResponse
     {
-        $requestUraNumber = $request->get("ura");
-        $user = Auth::user();
-        $uras = array_filter(
-            $user->uras,
-            function ($currentUra) use ($requestUraNumber) {
-                return $currentUra->ura == $requestUraNumber;
-            }
-        );
-        $ura = reset($uras);
+        /* @var UziUser $user */
+        $user = $request->user();
+
+        $ura = $request->getValidatedUra();
         $body = [
                 "@context" => "https://irma.app/ld/request/issuance/v2",
                 "credentials" => [[
                         "credential" => $this->irmaDisclosurePrefix,
-                        "revocationKey" => "uziId-" . $user->uziId . "-ura-" . $user->ura,
+                        "revocationKey" => "uziId-" . $user->uziId . "-ura-" . $ura->ura,
                         "attributes" => [
                             "initials" => $user->initials,
                             "surnamePrefix" => $user->surnamePrefix,
@@ -47,16 +42,18 @@ class IrmaController
                             "entityName" => $ura->entityName,
                             "ura" => $ura->ura,
                             "uziId" => $user->uziId,
-                            "roles" => join(", ", $ura->roles),
+                            "roles" => implode(", ", $ura->roles),
                             "loaAuthn" => $user->loaAuthn,
                             "loaUzi" => $user->loaUzi
                         ]
                     ]
                 ]
         ];
+
         $resp = Http::post($this->internalIrmaUrl . "/session", $body)
             ->throw()
             ->json();
-        return ["sessionPtr" => $resp["sessionPtr"]];
+        return response()
+            ->json(["sessionPtr" => $resp["sessionPtr"]]);
     }
 }

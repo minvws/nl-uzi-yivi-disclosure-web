@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use Exception;
-use Illuminate\Support\Facades\Log;
 use Jose\Easy\ParameterBag;
 use Illuminate\Contracts\Auth\Authenticatable;
 use RuntimeException;
@@ -29,22 +27,18 @@ class UziUser implements Authenticatable
 
     public static function getFromParameterBag(ParameterBag $data): UziUser | null
     {
-        $required_keys = array("relations", "initials", "surname", "surname_prefix", "uzi_id", "loa_uzi");
-        $missing_keys = array();
-        foreach ($required_keys as &$key) {
+        $requiredKeys = ["relations", "initials", "surname", "surname_prefix", "uzi_id", "loa_uzi"];
+        $missingKeys = [];
+        foreach ($requiredKeys as $key) {
             if (!$data->has($key)) {
-                $missing_keys[] = $key;
+                $missingKeys[] = $key;
             }
         }
-        if (count($missing_keys) > 0) {
+        if (count($missingKeys) > 0) {
             return null;
         }
-        if (
-                !$data->has('relations')
-                or !$data->has('i')
-        ) {
-            $relations = [];
-        }
+
+        $relations = [];
         foreach ($data->get('relations') as $relation) {
             $relations[] = new UziRelation($relation['entity_name'], $relation['ura'], $relation['roles']);
         }
@@ -59,29 +53,6 @@ class UziUser implements Authenticatable
         );
     }
 
-    public static function deserializeFromJson(string $value): ?UziUser
-    {
-        $uras = [];
-        try {
-            $decoded = json_decode($value);
-            foreach ($decoded->uras as $ura) {
-                $uras[] = new UziRelation($ura->entityName, $ura->ura, $ura->roles);
-            }
-            return new UziUser(
-                $decoded->initials,
-                $decoded->surname,
-                $decoded->surnamePrefix,
-                $decoded->uziId,
-                $decoded->loaAuthn,
-                $decoded->loaUzi,
-                $uras
-            );
-        } catch (Exception $e) {
-            report($e);
-            Log::info("Trying to reconstruct a uzi user from session failed");
-            return null;
-        }
-    }
     /**
      * Get the name of the unique identifier for the user.
      *
