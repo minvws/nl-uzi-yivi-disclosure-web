@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\IrmaStartRequest;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\Factory;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Http;
@@ -19,14 +20,19 @@ class IrmaController
     ) {
     }
 
-    public function disclosures(): Factory|View|Application
+    public function disclosures(Request $request): Factory|View|Application
     {
-        return view('disclosure');
+        /* @var \App\Models\UziUser $user */
+        $user = $request->user();
+
+        return view('disclosure', [
+            'userUras' => $user->uras,
+        ]);
     }
 
     public function start(IrmaStartRequest $request): JsonResponse
     {
-        /* @var UziUser $user */
+        /* @var \App\Models\UziUser $user */
         $user = $request->user();
 
         $ura = $request->getValidatedUra();
@@ -42,7 +48,7 @@ class IrmaController
                             "entityName" => $ura->entityName,
                             "ura" => $ura->ura,
                             "uziId" => $user->uziId,
-                            "roles" => implode(", ", $ura->roles),
+                            "roles" => implode(", ", $ura->getRoleCodes()),
                             "loaAuthn" => $user->loaAuthn,
                             "loaUzi" => $user->loaUzi
                         ]

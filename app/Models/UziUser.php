@@ -4,12 +4,23 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Services\Uzi\UziRoleService;
 use Jose\Easy\ParameterBag;
 use Illuminate\Contracts\Auth\Authenticatable;
 use RuntimeException;
 
 class UziUser implements Authenticatable
 {
+    /**
+     * @param string|null $initials
+     * @param string|null $surname
+     * @param string|null $surnamePrefix
+     * @param string $uziId
+     * @param string|null $loaAuthn
+     * @param string $loaUzi
+     * @param UziRelation[] $uras
+     * @param string $email
+     */
     public function __construct(
         public string|null $initials,
         public string|null $surname,
@@ -38,9 +49,11 @@ class UziUser implements Authenticatable
             return null;
         }
 
+        $uziRoleService = new UziRoleService();
         $relations = [];
         foreach ($data->get('relations') as $relation) {
-            $relations[] = new UziRelation($relation['entity_name'], $relation['ura'], $relation['roles']);
+            $roles = $uziRoleService->getRolesByCodes($relation['roles']);
+            $relations[] = new UziRelation($relation['entity_name'], $relation['ura'], $roles);
         }
         return new self(
             initials: $data->get('initials'),

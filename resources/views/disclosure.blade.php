@@ -10,8 +10,8 @@
     </section>
     @endif
     <div>
-        <h1>hier disclosures</h1>
-        <p>Veel text</p>
+        <h1>Yivi kaartjes uitgifte</h1>
+        <p>Hier ziet u een overzicht van instanties waar u een werkrelatie mee heeft. Per instantie kunt u een yivi kaartje inladen in de yivi app. Klik op "Toon QR-code" om het kaartje in de app te laden.</p>
         <div id="yivi-web-form" class="external-component"></div>
 
         <div class="horizontal-scroll">
@@ -20,17 +20,17 @@
                     <tr>
                         <th scope="col">Instantie</th>
                         <th scope="col">Rollen</th>
-                        <th scope="col">Inladen IRMA</th>
+                        <th scope="col">Inladen via Yivi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (Auth::user()->uras as $ura)
+                    @foreach ($userUras as $ura)
                     <tr>
-                        <td>{{ $ura->entityName }} ({{ $ura->ura }})</td>
-                        <td>@foreach ($ura->roles as $role){{ $role }}<br> @endforeach</td>
+                        <td>{{ $ura->entityName }}</td>
+                        <td>{{ $ura->getVisibleRoleNames() }}</td>
                         <td>
                             <div>
-                                <button data-yivi-start-button data-csrf-token="{{ csrf_token() }}" data-yivi-ura="{{ $ura->ura }}" type="button">Inladen</button>
+                                <button data-yivi-start-button data-csrf-token="{{ csrf_token() }}" data-yivi-ura="{{ $ura->ura }}" type="button" class="ghost">Toon QR-code</button>
                             </div>
                         </td>
                     </tr>
