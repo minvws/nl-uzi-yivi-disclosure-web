@@ -2,9 +2,9 @@ name: PHP Tests
 
 on:
   push:
-    branches: [ main, master, develop ]
+    branches: main
   pull_request:
-    branches: [ main, master, develop ]
+    branches: main
 
 jobs:
   composer-install:
@@ -13,7 +13,7 @@ jobs:
     strategy:
       max-parallel: 3
       matrix:
-        php-versions: [ '8.0', '8.1', '8.2' ]
+        php-versions: [ '8.2', '8.3' ]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/cache@v3
@@ -39,7 +39,7 @@ jobs:
     strategy:
       max-parallel: 3
       matrix:
-        php-versions: [ '8.0', '8.1', '8.2' ]
+        php-versions: [ '8.2', '8.3' ]
 
     services:
       postgres:
@@ -73,7 +73,5 @@ jobs:
     - name: Create dist folder and dummy files
       run: mkdir -p dist/js && touch dist/js/app.js
     - name: Execute tests (Unit and Feature)
-      env:
-        KEY: value
-      run: vendor/bin/phpunit --coverage-clover branie_php_clover.xml
+      run: vendor/bin/phpunit
 

@@ -21,8 +21,6 @@ yarn-error.log
 _ide_helper.php
 docs/coverage
 .vscode
-branie_php_code_coverage.svg
-branie_php_clover.xml
 .coverage
 storage/framework/degraded
 yarn.lock

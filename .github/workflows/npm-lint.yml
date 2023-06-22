@@ -2,9 +2,9 @@ name: Node - npm run lint
 
 on:
   push:
-    branches: [main, develop, release/**, hotfix/**]
+    branches: main
   pull_request:
-    branches: [main, develop, release/**, hofix/**]
+    branches: main
 
 jobs:
   build:
