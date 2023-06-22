@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Services\Uzi\UziRoleService;
-use Jose\Easy\ParameterBag;
+use Exception;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Contracts\Auth\Authenticatable;
 use RuntimeException;
 
@@ -36,12 +37,12 @@ class UziUser implements Authenticatable
         }
     }
 
-    public static function getFromParameterBag(ParameterBag $data): UziUser | null
+    public static function deserializeFromObject(object $oidcResponse): ?UziUser
     {
         $requiredKeys = ["relations", "initials", "surname", "surname_prefix", "uzi_id", "loa_uzi"];
         $missingKeys = [];
         foreach ($requiredKeys as $key) {
-            if (!$data->has($key)) {
+            if (!property_exists($oidcResponse, $key)) {
                 $missingKeys[] = $key;
             }
         }
@@ -49,21 +50,38 @@ class UziUser implements Authenticatable
             return null;
         }
 
-        $uziRoleService = new UziRoleService();
-        $relations = [];
-        foreach ($data->get('relations') as $relation) {
-            $roles = $uziRoleService->getRolesByCodes($relation['roles']);
-            $relations[] = new UziRelation($relation['entity_name'], $relation['ura'], $roles);
+
+        $roleService = new UziRoleService();
+        $uras = [];
+        try {
+            foreach ($oidcResponse->relations ?? [] as $ura) {
+                if (
+                    !property_exists($ura, "entity_name")
+                    || !property_exists($ura, "ura")
+                    || !property_exists($ura, "roles")
+                ) {
+                    Log::error("Uzi relation missing required fields: entity_name, ura or roles.", [$ura]);
+                    continue;
+                }
+
+                $roles = $roleService->getRolesByCodes($ura->roles);
+                $uras[] = new UziRelation($ura->entity_name, $ura->ura, $roles);
+            }
+
+            return new UziUser(
+                $oidcResponse->initials,
+                $oidcResponse->surname,
+                $oidcResponse->surname_prefix,
+                $oidcResponse->uzi_id,
+                $oidcResponse->loa_authn ?? null,
+                $oidcResponse->loa_uzi,
+                $uras
+            );
+        } catch (Exception $e) {
+            report($e);
+            Log::error("Trying to build an uzi user from userinfo failed", [$e]);
+            return null;
         }
-        return new self(
-            initials: $data->get('initials'),
-            surname: $data->get('surname'),
-            surnamePrefix: $data->get('surname_prefix'),
-            uziId: $data->get('uzi_id'),
-            loaAuthn: $data->has('loa_authn') ? $data->get('loa_authn') : null,
-            loaUzi: $data->get('loa_uzi'),
-            uras: $relations
-        );
     }
 
     /**

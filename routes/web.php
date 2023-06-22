@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Auth\UziAuthController;
 use App\Http\Controllers\IrmaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Config;
@@ -36,10 +35,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])
         ->name('logout');
 });
-
-Route::get('/oidc/login', [UziAuthController::class, 'login'])
-                ->middleware(['guest'])
-                ->name('uzi.login');
 
 Route::redirect('/', '/irma-disclosure');
 

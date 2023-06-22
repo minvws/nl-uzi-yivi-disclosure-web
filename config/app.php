@@ -196,8 +196,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\UziServiceProvider::class
-
+        App\Providers\UziServiceProvider::class,
+        App\Providers\OidcServiceProvider::class,
     ],
 
     /*

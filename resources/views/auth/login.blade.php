@@ -16,7 +16,7 @@
         <p>Het laden van deze kaartjes in een wallet-app biedt zorgverleners efficiënte identiteitsverificatie, directe toegang tot relevante medische informatie, verbeterde gegevensnauwkeurigheid en vereenvoudigde administratieve processen. </p>
         <p>Dit resulteert in tijdbesparing, verbeterde besluitvorming, verhoogde efficiëntie en een betere zorgervaring voor zowel zorgverleners als patiënten.</p>
 
-        <a href="{{ route('uzi.login') }}">{{ __('Login with DigiD') }}</a>
+        <a href="{{ route('oidc.login') }}">{{ __('Login with DigiD') }}</a>
     </div>
 </section>
 @endsection
