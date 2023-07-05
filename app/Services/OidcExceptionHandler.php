@@ -59,6 +59,13 @@ class OidcExceptionHandler extends ExceptionHandler
             ->with('error', __('Something went wrong with logging in, please try again.'));
     }
 
+    protected function default400Response(OpenIDConnectClientException $exception): Response
+    {
+        return redirect()
+            ->route('login')
+            ->with('error', __('Something went wrong with logging in, please try again.'));
+    }
+
     protected function getErrorParamFromRequest(): ?string
     {
         $request = request();
