@@ -64,7 +64,7 @@ function yiviStart(ura, title, csrfToken)
 
         // Back-end options
         session: {
-            url: '/irma',
+            url: '/yivi-session',
             start: {
                 url: o => `${o.url}/start`,
                 method: 'POST',

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\IrmaController;
+use App\Http\Controllers\YiviController;
 use App\Http\Controllers\PrivacyStatementController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Config;
@@ -38,11 +38,10 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/yivi-disclosure', [IrmaController::class, 'disclosures'])
+    Route::get('/yivi-disclosure', [YiviController::class, 'disclosures'])
         ->name('yivi-disclosure');
-    Route::post('/disclose', [IrmaController::class, 'disclose']);
-    Route::post('/irma/start', [IrmaController::class, 'start']);
-    Route::get('/irma/result', [IrmaController::class, 'result']);
+    Route::post('/yivi-session/start', [YiviController::class, 'start']);
+    Route::get('/yivi-session/result', [YiviController::class, 'result']);
 
     Route::post('/logout', [AuthController::class, 'logout'])
         ->name('logout');

@@ -10,7 +10,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
 use RuntimeException;
 
-class IrmaStartRequest extends FormRequest
+class YiviStartRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\IrmaStartRequest;
+use App\Http\Requests\YiviStartRequest;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -12,12 +12,16 @@ use Illuminate\View\Factory;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Http;
 
-class IrmaController
+class YiviController
 {
+    protected string $internalYiviServerSessionUrl = '';
+
     public function __construct(
-        protected string $internalIrmaUrl,
-        protected string $irmaDisclosurePrefix,
+        protected string $internalYiviServerUrl,
+        protected bool $internalYiviServerVerifyTls,
+        protected string $yiviDisclosurePrefix,
     ) {
+        $this->internalYiviServerSessionUrl = $this->internalYiviServerUrl . "/session";
     }
 
     public function disclosures(Request $request): Factory|View|Application
@@ -30,7 +34,7 @@ class IrmaController
         ]);
     }
 
-    public function start(IrmaStartRequest $request): JsonResponse
+    public function start(YiviStartRequest $request): JsonResponse
     {
         /* @var \App\Models\UziUser $user */
         $user = $request->user();
@@ -39,7 +43,7 @@ class IrmaController
         $body = [
                 "@context" => "https://irma.app/ld/request/issuance/v2",
                 "credentials" => [[
-                        "credential" => $this->irmaDisclosurePrefix,
+                        "credential" => $this->yiviDisclosurePrefix,
                         "revocationKey" => "uziId-" . $user->uziId . "-ura-" . $ura->ura,
                         "attributes" => [
                             "initials" => $user->initials,
@@ -56,10 +60,22 @@ class IrmaController
                 ]
         ];
 
-        $resp = Http::post($this->internalIrmaUrl . "/session", $body)
+        $response = $this->startYiviSession($body);
+        return response()
+            ->json(["sessionPtr" => $response["sessionPtr"]]);
+    }
+
+    protected function startYiviSession(array $body): array
+    {
+        if ($this->internalYiviServerVerifyTls === false) {
+            return Http::withoutVerifying()
+                ->post($this->internalYiviServerSessionUrl, $body)
+                ->throw()
+                ->json();
+        }
+
+        return Http::post($this->internalYiviServerSessionUrl, $body)
             ->throw()
             ->json();
-        return response()
-            ->json(["sessionPtr" => $resp["sessionPtr"]]);
     }
 }

@@ -1,5 +1,5 @@
 **Introduction:**
-This irma-disclosure repository is the frontend for disclosing [Yivi](https://yivi.app) attributes. For additional information about the uzi project, check the coordination repo at https://github.com/minvws/nl-rdo-uzi-coordination Make
+This yivi-disclosure repository is the frontend for disclosing [Yivi](https://yivi.app) attributes. For additional information about the uzi project, check the coordination repo at https://github.com/minvws/nl-rdo-uzi-coordination Make
 
 **Get up and running:**
 The easiest way to get the uzi project running is to run the "make setup" command from the coordination repository. This will automatically run the "make setup" of all project. You also have the option to run "make setup" command manually for each project.
