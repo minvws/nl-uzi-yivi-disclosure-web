@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Http\Responses;
 
 use App\Models\UziUser;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -22,6 +21,6 @@ class OidcLoginResponseHandler implements LoginResponseHandlerInterface
         }
 
         Auth::setUser($user);
-        return new RedirectResponse(RouteServiceProvider::HOME);
+        return new RedirectResponse(route('yivi-disclosure'));
     }
 }

@@ -6,7 +6,7 @@
         "lint": "eslint ."
     },
     "devDependencies": {
-        "@minvws/nl-rdo-rijksoverheid-ui-theme": "^0.0.13",
+        "@minvws/nl-rdo-rijksoverheid-ui-theme": "^0.0.14",
         "@privacybydesign/yivi-client": "^0.1.2",
         "@privacybydesign/yivi-core": "^0.1.2",
         "@privacybydesign/yivi-css": "^0.1.2",

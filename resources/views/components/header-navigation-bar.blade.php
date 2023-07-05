@@ -7,15 +7,22 @@
     <div class="collapsing-element">
         <ul>
             <li>
-                <a href="/" aria-current="page"><span class="icon icon-home"></span>Start</a>
+                <a href="{{ route('yivi-disclosure') }}" @if(\Illuminate\Support\Facades\Route::currentRouteName() === 'yivi-disclosure') aria-current="page" @endif><span class="icon icon-home">Home-icoon</span>YIVI inlogroute</a>
             </li>
         </ul>
+
         @auth
-        <ul>
-            <li>
-                <x-header-logout-button />
-            </li>
-        </ul>
+            <ul>
+                <li>
+                    <x-header-logout-button />
+                </li>
+            </ul>
+        @else
+            <ul>
+                <li>
+                    <a href="{{ route('login') }}"><span class="icon icon-user">Gebruikersicoon</span>Inloggen</a>
+                </li>
+            </ul>
         @endauth
     </div>
 </nav>

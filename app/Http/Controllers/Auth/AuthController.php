@@ -21,6 +21,6 @@ class AuthController
         Auth::logout();
 
         return redirect()
-            ->route('login');
+            ->route('home');
     }
 }

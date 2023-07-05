@@ -3,7 +3,9 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IrmaController;
+use App\Http\Controllers\PrivacyStatementController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Config;
 
@@ -26,8 +28,18 @@ Route::get('ChangeLanguage/{locale}', function ($locale) {
     return redirect()->back();
 })->name('changelang');
 
+Route::get('privacy-statement', PrivacyStatementController::class)->name('privacy-statement');
+
+Route::middleware(['guest'])->group(function () {
+    Route::get('/', HomeController::class)
+        ->name('home');
+    Route::get('/login', [AuthController::class, 'login'])
+        ->name('login');
+});
+
 Route::middleware(['auth'])->group(function () {
-    Route::get('/irma-disclosure', [IrmaController::class, 'disclosures']);
+    Route::get('/yivi-disclosure', [IrmaController::class, 'disclosures'])
+        ->name('yivi-disclosure');
     Route::post('/disclose', [IrmaController::class, 'disclose']);
     Route::post('/irma/start', [IrmaController::class, 'start']);
     Route::get('/irma/result', [IrmaController::class, 'result']);
@@ -35,9 +47,3 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])
         ->name('logout');
 });
-
-Route::redirect('/', '/irma-disclosure');
-
-Route::get('/login', [AuthController::class, 'login'])
-    ->middleware(['guest'])
-    ->name('login');
