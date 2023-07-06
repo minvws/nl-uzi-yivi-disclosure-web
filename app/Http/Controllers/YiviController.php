@@ -20,6 +20,7 @@ class YiviController
         protected string $internalYiviServerUrl,
         protected bool $internalYiviServerVerifyTls,
         protected string $yiviDisclosurePrefix,
+        protected int $yiviValidityPeriodInWeeks,
     ) {
         $this->internalYiviServerSessionUrl = $this->internalYiviServerUrl . "/session";
     }
@@ -45,6 +46,7 @@ class YiviController
                 "credentials" => [[
                         "credential" => $this->yiviDisclosurePrefix,
                         "revocationKey" => "uziId-" . $user->uziId . "-ura-" . $ura->ura,
+                        "validity" => time() + $this->yiviValidityPeriodInWeeks * 7 * 24 * 60 * 60,
                         "attributes" => [
                             "initials" => $user->initials,
                             "surnamePrefix" => $user->surnamePrefix,

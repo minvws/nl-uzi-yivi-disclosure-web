@@ -18,6 +18,7 @@ class UziServiceProvider extends ServiceProvider
                     internalYiviServerUrl: config('yivi.internal_server_url'),
                     internalYiviServerVerifyTls: config('yivi.internal_server_verify_tls'),
                     yiviDisclosurePrefix: config('yivi.disclosure_prefix'),
+                    yiviValidityPeriodInWeeks: config('yivi.validity_period_in_weeks')
                 );
             }
         );

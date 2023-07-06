@@ -6,9 +6,9 @@ setup:
 	php artisan key:generate
 	# echo "//npm.pkg.github.com/:_authToken=$(TOKEN)"  >> ~/.npmrc
 	npm install
-	npm run dev
+	npm run build
 
-run:	
-	php artisan serve
+run:
+	vendor/bin/sail up
 
-	
+
