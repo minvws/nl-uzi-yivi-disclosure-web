@@ -9,6 +9,4 @@ setup:
 	npm run build
 
 run:
-	vendor/bin/sail up
-
-
+	php artisan serve
