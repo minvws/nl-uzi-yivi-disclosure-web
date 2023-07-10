@@ -25,10 +25,10 @@
                 </li>
                 <li>
                     <strong>UZI-pas</strong>
-                    <p>Het CIBG treedt onder verantwoordelijkheid van VWS op als beheerder/verstrekker van de UZI-gegevens. Hier leest u hoe uw gegevens beschermd worden bij de verstrekking van uw UZI-gegevens door het CIBG. Deze verstrekking vindt ook plaats bij gebruik van Digid en Yivi, dus niet alleen bij het gebruik van de UZI-pas.</p>
+                    <p>Het CIBG treedt onder verantwoordelijkheid van VWS op als beheerder/verstrekker van de UZI-gegevens.<br><a rel="external" href="https://www.uziregister.nl/privacy">Hier</a> leest u hoe uw gegevens beschermd worden bij de verstrekking van uw UZI-gegevens door het CIBG. Deze verstrekking vindt ook plaats bij gebruik van Digid en Yivi, dus niet alleen bij het gebruik van de UZI-pas.</p>
                 </li>
                 <li>
-                    <strong>YIVI</strong><!-- TODO: Add #href for ‘Meer over Yivi’ -->
+                    <strong>YIVI</strong>
                     <p>Yivi is een identiteitsapp van SIDN Business B.V. (onderdeel van Stichting Internet Domeinregistratie Nederland, SIDN). Lees verder onder <a href="#more-about-yivi">Meer over Yivi</a>. SIDN is verantwoordelijk voor verwerken van persoonsgegevens door Yivi. Hier leest u hoe uw gegevens beschermd worden bij het gebruik van Yivi.</p>
                 </li>
             </ul>
@@ -118,7 +118,7 @@
                 U kunt uw vragen, suggesties of klachten mailen naar <a href="mailto:info-uzi@minvws.nl" target="_top" aria-label="Stuur e-mail naar info-uzi@minvws.nl">info-uzi@minvws.nl</a> onder vermelding van <span class="nowrap">‘UZI-pilot 2'</span>.
             </p>
             <p>
-                Als u een beroep wilt doen op uw rechten onder de AVG waaronder inzage, correctie of verwijdering van uw persoonsgegevens,  kunt u mailen naar <a href="mailto:gegevensuitwisseling@minvws.nl" target="_top" aria-label="Stuur e-mail naar gegevensuitwisseling@minvws.nl">gegevensuitwisseling@minvws.nl</a> onder vermelding van 'UZI-pilot 2'.
+                Als u een beroep wilt doen op uw rechten onder de AVG waaronder inzage, correctie of verwijdering van uw persoonsgegevens,  kunt u mailen naar <a href="mailto:info-uzi@minvws.nl" target="_top" aria-label="Stuur e-mail naar info-uzi@minvws.nl">info-uzi@minvws.nl</a> onder vermelding van 'UZI-pilot 2'.
             </p>
 
             <h2>Functionaris voor de Gegevensbescherming en Autoriteit Persoonsgegevens</h2>
@@ -128,8 +128,8 @@
 
             <p>
                 Privacyverklaring UZI Pilot 2<br>
-                VWS, versie 0.8<br>
-                <time datetime="2023-06-29">29 juni 2023</time>
+                VWS, versie 1.0<br>
+                <time datetime="2023-07-07">07-07-2023</time>
             </p>
         </div>
     </article>
