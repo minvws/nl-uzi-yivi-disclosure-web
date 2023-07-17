@@ -5,7 +5,7 @@
         <nav aria-label="Footer navigatie">
             <ul>
                 <li><a href="{{ route('privacy-statement') }}">Privacyverklaring</a></li>
-                <li><a href="">Over YIVI inlogroute</a></li>
+                <li><a href="{{ route('home') }}">Over YIVI inlogroute</a></li>
             </ul>
         </nav>
 

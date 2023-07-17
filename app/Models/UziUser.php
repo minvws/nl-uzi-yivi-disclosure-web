@@ -47,6 +47,7 @@ class UziUser implements Authenticatable
             }
         }
         if (count($missingKeys) > 0) {
+            Log::error("Uzi user missing required fields: " . implode(", ", $missingKeys));
             return null;
         }
 
@@ -153,5 +154,10 @@ class UziUser implements Authenticatable
     public function getRememberTokenName(): string
     {
         throw new RuntimeException("Do not remember cookie's");
+    }
+
+    public function hasUziId(): bool
+    {
+        return !empty($this->uziId);
     }
 }
