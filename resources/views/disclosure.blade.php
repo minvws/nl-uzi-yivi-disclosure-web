@@ -32,17 +32,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($userUras as $ura)
-                    <tr>
-                        <td>{{ $ura->entityName }}</td>
-                        <td lang="nl">{{ $ura->getVisibleRoleNames() }}</td>
-                        <td>
-                            <div>
-                                <button data-yivi-start-button data-csrf-token="{{ csrf_token() }}" data-yivi-ura="{{ $ura->ura }}" type="button" class="ghost">@lang('Show QR Code')</button>
-                            </div>
-                        </td>
-                    </tr>
-                    @endforeach
+                    @forelse($userUras as $ura)
+                        <tr>
+                            <td>{{ $ura->entityName }}</td>
+                            <td lang="nl">{{ $ura->getVisibleRoleNames() }}</td>
+                            <td>
+                                <div>
+                                    <button data-yivi-start-button data-csrf-token="{{ csrf_token() }}" data-yivi-ura="{{ $ura->ura }}" type="button" class="ghost">@lang('Show QR Code')</button>
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="3">@lang('No associated organizations found.')</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
