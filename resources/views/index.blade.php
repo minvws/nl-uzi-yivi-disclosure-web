@@ -4,7 +4,7 @@
     @if (session()->has('error'))
         <section role="alert" class="error no-print" aria-label="{{ __('error') }}">
             <div>
-                <h4>{{ session('error') }}</h4>
+                <strong>{{ session('error') }}</strong>
                 <p>{{ session('error_description') }}</p>
             </div>
         </section>
@@ -24,8 +24,18 @@
             <h2>@lang('Login')</h2>
             <p>@lang('Login using one of the options below:')</p>
             <ul class="external-login">
-                <li><a href="{{ route('oidc.login', ['login_hint' => 'digid']) }}"><img src="{{ asset('img/logo_digid_rgb.svg') }}" alt="DigiD logo">@lang('Login with') DigiD</a></li>
-                <li><a href="{{ route('oidc.login', ['login_hint' => 'uzipas']) }}"><img src="{{ asset('img/uzipas.png') }}" alt="UZI-Pas chip">@lang('Login with') UZI-pas</a></li>
+                <li>
+                    <a href="{{ route('oidc.login', ['login_hint' => 'digid']) }}">
+                        <img src="{{ asset('img/logo_digid_rgb.svg') }}" alt="DigiD logo" rel="external">
+                        @lang('Login with') DigiD
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('oidc.login', ['login_hint' => 'uzipas']) }}">
+                        <img src="{{ asset('img/uzipas.png') }}" alt="" rel="external">
+                        @lang('Login with') UZI-pas
+                    </a>
+                </li>
             </ul>
         </div>
     </section>
