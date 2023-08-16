@@ -5,7 +5,7 @@
         </div>
     @endauth
     <div class="language">
-        <a href="{{route('changelang', ['locale' => 'nl'])}}">Nederlands</a>
-        <a href="{{route('changelang', ['locale' => 'en'])}}">English</a>
+        <a href="{{ route('changelang', ['locale' => 'nl']) }}" @if(app()->getLocale() === 'nl') aria-current="true" @endif>Nederlands</a>
+        <a href="{{ route('changelang', ['locale' => 'en']) }}" @if(app()->getLocale() === 'en') aria-current="true" @endif>English</a>
     </div>
 </div>

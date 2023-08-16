@@ -1,11 +1,11 @@
 <footer>
     <div class="two-thirds-one-third">
-        <span class="slogan">De Rijksoverheid. Voor Nederland</span>
+        <span class="slogan" lang="nl">De Rijksoverheid. Voor Nederland</span>
 
-        <nav aria-label="Footer navigatie">
+        <nav aria-label="@lang('Footer navigation')">
             <ul>
-                <li><a href="{{ route('privacy-statement') }}">Privacyverklaring</a></li>
-                <li><a href="{{ route('home') }}">Over YIVI inlogroute</a></li>
+                <li><a href="{{ route('privacy-statement') }}">@lang('Privacy statement')</a></li>
+                <li><a href="{{ route('home') }}">@lang('About') @lang('YIVI login route')</a></li>
             </ul>
         </nav>
 
