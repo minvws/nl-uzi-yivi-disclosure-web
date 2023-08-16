@@ -1,7 +1,7 @@
 @extends('layouts.guest')
 
 @section('content')
-    <article>
+    <article lang="nl">
         <div>
             <h1>Uw privacy</h1>
 
