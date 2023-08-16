@@ -27,6 +27,10 @@
             img {
                 width: 3.75rem;
             }
+
+            &[rel~="external"]:before {
+                display: none;
+            }
         }
     }
 }

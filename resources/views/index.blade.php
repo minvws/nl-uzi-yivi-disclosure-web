@@ -4,7 +4,7 @@
     @if (session()->has('error'))
         <section role="alert" class="error no-print" aria-label="{{__('error') }}">
             <div>
-                <h4>{{ session('error') }}</h4>
+                <strong>{{ session('error') }}</strong>
                 <p>{{ session('error_description') }}</p>
             </div>
         </section>
@@ -24,8 +24,19 @@
             <h2>Inloggen</h2>
             <p>Log in via een van de onderstaande opties:</p>
             <ul class="external-login">
-                <li><a href="{{ route('oidc.login', ['login_hint' => 'digid']) }}"><img src="{{ asset('img/logo_digid_rgb.svg') }}" alt="DigiD logo">Inloggen met DigiD</a></li>
-                <li><a href="{{ route('oidc.login', ['login_hint' => 'uzipas']) }}"><img src="{{ asset('img/uzipas.png') }}" alt="UZI-Pas chip">Inloggen met UZI-pas</a></li>
+                <li>
+                    <a href="{{ route('oidc.login', ['login_hint' => 'digid']) }}" rel="external">
+                        <img src="{{ asset('img/logo_digid_rgb.svg') }}" alt="DigiD logo" >
+                        Inloggen met DigiD
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('oidc.login', ['login_hint' => 'uzipas']) }}" rel="external">
+                        <img src="{{ asset('img/uzipas.png') }}" alt="UZI-Pas chip">
+                        Inloggen met UZI-pas
+                    </a>
+                </li>
             </ul>
         </div>
     </section>
