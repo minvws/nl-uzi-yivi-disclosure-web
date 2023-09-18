@@ -15,7 +15,7 @@
         "axios": "^1.1.2",
         "laravel-vite-plugin": "^0.8.0",
         "lodash": "^4.17.19",
-        "postcss": "^8.4.27",
+        "postcss": "^8.4.29",
         "sass": "^1.67.0",
         "vite": "^4.4.9",
         "vite-plugin-node-polyfills": "^0.14.1"
