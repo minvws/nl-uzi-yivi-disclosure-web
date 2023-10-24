@@ -17,7 +17,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -123,7 +123,7 @@ return [
 
     'redis' => [
 
-        'client' => env('REDIS_CLIENT', 'phpredis'),
+        'client' => env('REDIS_CLIENT', 'predis'),
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
@@ -131,21 +131,39 @@ return [
         ],
 
         'default' => [
+            'scheme' => env('REDIS_SCHEME', 'tcp'),
             'url' => env('REDIS_URL'),
             'host' => env('REDIS_HOST', '127.0.0.1'),
-            'username' => env('REDIS_USERNAME'),
-            'password' => env('REDIS_PASSWORD'),
+            'username' => env('REDIS_USERNAME', null),
+            'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', '6379'),
             'database' => env('REDIS_DB', '0'),
+            'ssl' => [
+                'peer_name' => env('REDIS_TLS_PEER_NAME', ''),
+                'verify_peer' => env('REDIS_TLS_VERIFY_PEER', true),
+                'verify_peer_name' => env('REDIS_TLS_VERIFY_PEER_NAME', true),
+                'cafile' => env('REDIS_TLS_CAFILE', ''),
+                'local_cert' => env('REDIS_TLS_LOCAL_CERT', ''),
+                'local_pk' => env('REDIS_TLS_LOCAL_PK', ''),
+            ]
         ],
 
         'cache' => [
+            'scheme' => env('REDIS_SCHEME', 'tcp'),
             'url' => env('REDIS_URL'),
             'host' => env('REDIS_HOST', '127.0.0.1'),
-            'username' => env('REDIS_USERNAME'),
-            'password' => env('REDIS_PASSWORD'),
+            'username' => env('REDIS_USERNAME', null),
+            'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', '6379'),
             'database' => env('REDIS_CACHE_DB', '1'),
+            'ssl' => [
+                'peer_name' => env('REDIS_TLS_PEER_NAME', ''),
+                'verify_peer' => env('REDIS_TLS_VERIFY_PEER', true),
+                'verify_peer_name' => env('REDIS_TLS_VERIFY_PEER_NAME', true),
+                'cafile' => env('REDIS_TLS_CAFILE', ''),
+                'local_cert' => env('REDIS_TLS_LOCAL_CERT', ''),
+                'local_pk' => env('REDIS_TLS_LOCAL_PK', ''),
+            ]
         ],
 
     ],
