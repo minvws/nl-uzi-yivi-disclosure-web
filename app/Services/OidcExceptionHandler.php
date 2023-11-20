@@ -26,7 +26,7 @@ class OidcExceptionHandler extends ExceptionHandler
             // If authentication flow cancelled from chosen authentication provider
             case 'login_required':
                 return redirect()
-                    ->route('login')
+                    ->route('home')
                     ->with('error', __('Login cancelled'));
         }
 
@@ -41,28 +41,28 @@ class OidcExceptionHandler extends ExceptionHandler
     protected function handleUnableToDetermineState(OpenIDConnectClientException $exception): Response
     {
         return redirect()
-            ->route('login')
+            ->route('home')
             ->with('error', __('Something went wrong with logging in, please try again.'));
     }
 
     protected function defaultResponse(OpenIDConnectClientException $exception): Response
     {
         return redirect()
-            ->route('login')
+            ->route('home')
             ->with('error', __('Something went wrong with logging in, please try again.'));
     }
 
     protected function defaultResponseGenericException(Exception $exception): Response
     {
         return redirect()
-            ->route('login')
+            ->route('home')
             ->with('error', __('Something went wrong with logging in, please try again.'));
     }
 
     protected function default400Response(OpenIDConnectClientException $exception): Response
     {
         return redirect()
-            ->route('login')
+            ->route('home')
             ->with('error', __('Something went wrong with logging in, please try again.'));
     }
 
