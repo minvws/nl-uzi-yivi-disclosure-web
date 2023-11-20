@@ -51,7 +51,7 @@ class UziUser implements Authenticatable
             }
         }
         if (count($missingKeys) > 0) {
-            Log::error("Uzi user missing required fields: " . implode(", ", $missingKeys));
+            Log::debug("Uzi user missing required fields: " . implode(", ", $missingKeys));
             throw new UziNoUziNumberException();
         }
 
