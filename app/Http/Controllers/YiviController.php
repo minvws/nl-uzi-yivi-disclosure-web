@@ -12,7 +12,7 @@ use Illuminate\View\Factory;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Http;
 
-class YiviController
+class YiviController extends Controller
 {
     protected string $internalYiviServerSessionUrl = '';
 
