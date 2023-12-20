@@ -17,11 +17,11 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['yivi-session/*'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => explode(',', env('CORS_ORIGINS', env('APP_URL', 'http://localhost'))),
 
     'allowed_origins_patterns' => [],
 
