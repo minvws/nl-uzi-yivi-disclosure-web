@@ -5,6 +5,12 @@
     flex-direction: row;
     padding-left: 0;
 
+    --link-text-color: #000000;
+    --link-visited-icon-text-color: var(--link-text-color);
+    --link-hover-icon-text-color: var(--link-text-color);
+    --link-active-icon-text-color: var(--link-text-color);
+    --link-focus-icon-text-color: var(--link-text-color);
+
     li {
         background-color: #fff;
         list-style: none;
@@ -42,5 +48,6 @@
         padding: 1.5rem;
         width: 100%;
         gap: 1.5rem;
+
     }
 }

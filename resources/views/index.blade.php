@@ -27,7 +27,7 @@
                 <li>
                     <a href="{{ route('oidc.login') }}">
                         <img src="{{ asset('img/signin-method-logo.png') }}" alt="" rel="external">
-                        @lang('Login with') UZI-online
+                        @lang('Login with') UZI-online <i class="icon icon-chevron-right icon-small"></i>
                     </a>
                 </li>
             </ul>
