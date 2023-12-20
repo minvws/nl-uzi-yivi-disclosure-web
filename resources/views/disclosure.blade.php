@@ -7,10 +7,9 @@
 </section>
 
 @if (session()->has('error'))
-    <section role="alert" class="error no-print" aria-label="{{__('error') }}">
+    <section role="alert" class="error no-print" aria-label="{{ __('Error') }}">
         <div>
-            <h4>{{ session('error') }}</h4>
-            <p>{{ session('error_description') }}</p>
+            <p><span>{{ __('Error') }}:</span> {{ session('error') }} </p>
         </div>
     </section>
 @endif
