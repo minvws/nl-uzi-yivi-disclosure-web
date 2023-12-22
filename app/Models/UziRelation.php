@@ -23,6 +23,9 @@ class UziRelation
         return implode(', ', array_map(fn($role) => $role->name, $this->roles));
     }
 
+    /**
+     * @return string[]
+     */
     public function getRoleCodes(): array
     {
         return array_map(fn($role) => $role->code, $this->roles);

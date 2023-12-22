@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
@@ -16,9 +14,9 @@ class RedirectIfAuthenticated
     /**
      * Handle an incoming request.
      *
-     * @param Closure(Request): (\Symfony\Component\HttpFoundation\Response) $next
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, ...$guards): Redirector|RedirectResponse|Response
+    public function handle(Request $request, Closure $next, string ...$guards): Response
     {
         $guards = empty($guards) ? [null] : $guards;
 

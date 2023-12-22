@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Services;
 
 use Exception;
-use Illuminate\Http\Request;
 use Jumbojett\OpenIDConnectClientException;
 use MinVWS\OpenIDConnectLaravel\Services\ExceptionHandler;
 use Symfony\Component\HttpFoundation\Response;
@@ -69,9 +68,6 @@ class OidcExceptionHandler extends ExceptionHandler
     protected function getErrorParamFromRequest(): ?string
     {
         $request = request();
-        if (!($request instanceof Request)) {
-            return null;
-        }
 
         $error = $request->query('error');
         if (!is_string($error)) {

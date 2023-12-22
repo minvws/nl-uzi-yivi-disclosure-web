@@ -37,15 +37,15 @@ class UziAuthGuard implements Guard
         return $this->session->get(self::SESSION_KEY);
     }
 
-    public function id()
+    public function id(): string | null
     {
-        if (!$this->check()) {
-            return null;
-        }
-
-        return $this->user()->uziId;
+        return $this->user()?->uziId;
     }
 
+    /**
+     * @param array<mixed> $credentials
+     * @return mixed
+     */
     public function validate(array $credentials = [])
     {
         throw new \RuntimeException('Not implemented UziAuthGuard::validate() method');
@@ -59,6 +59,7 @@ class UziAuthGuard implements Guard
     public function setUser(Authenticatable $user): static
     {
         $this->session->put(self::SESSION_KEY, $user);
+        $this->session->migrate(true);
         return $this;
     }
 
@@ -70,5 +71,6 @@ class UziAuthGuard implements Guard
     public function logout(): void
     {
         $this->session->remove(self::SESSION_KEY);
+        $this->session->migrate(true);
     }
 }

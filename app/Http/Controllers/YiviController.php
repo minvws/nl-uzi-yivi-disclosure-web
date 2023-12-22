@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Http\Requests\YiviStartRequest;
-use Illuminate\Foundation\Application;
+use Illuminate\Http\Client\RequestException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\View\Factory;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Http;
 
@@ -25,7 +24,7 @@ class YiviController extends Controller
         $this->internalYiviServerSessionUrl = $this->internalYiviServerUrl . "/session";
     }
 
-    public function disclosures(Request $request): Factory|View|Application
+    public function disclosures(Request $request): View
     {
         /* @var \App\Models\UziUser $user */
         $user = $request->user();
@@ -67,6 +66,11 @@ class YiviController extends Controller
             ->json(["sessionPtr" => $response["sessionPtr"]]);
     }
 
+    /**
+     * @param array<mixed> $body
+     * @return array<mixed>
+     * @throws RequestException
+     */
     protected function startYiviSession(array $body): array
     {
         if ($this->internalYiviServerVerifyTls === false) {
