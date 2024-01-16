@@ -41,7 +41,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/yivi-disclosure', [YiviController::class, 'disclosures'])
         ->name('yivi-disclosure');
     Route::post('/yivi-session/start', [YiviController::class, 'start']);
-    Route::get('/yivi-session/result', [YiviController::class, 'result']);
 
     Route::post('/logout', [AuthController::class, 'logout'])
         ->name('logout');
