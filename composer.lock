@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5b4200c80670c175f489266af821ecdb",
+    "content-hash": "fbe2236e1752504d23a53f6592c42586",
     "packages": [
         {
             "name": "brick/math",
@@ -1047,16 +1047,16 @@
         },
         {
             "name": "jumbojett/openid-connect-php",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jumbojett/OpenID-Connect-PHP.git",
-                "reference": "5d69bcf15478bf11f32f7344afaa2f2640b9bd2a"
+                "reference": "4af1d11497ec765dccddf928c14c04535ca96017"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jumbojett/OpenID-Connect-PHP/zipball/5d69bcf15478bf11f32f7344afaa2f2640b9bd2a",
-                "reference": "5d69bcf15478bf11f32f7344afaa2f2640b9bd2a",
+                "url": "https://api.github.com/repos/jumbojett/OpenID-Connect-PHP/zipball/4af1d11497ec765dccddf928c14c04535ca96017",
+                "reference": "4af1d11497ec765dccddf928c14c04535ca96017",
                 "shasum": ""
             },
             "require": {
@@ -1069,7 +1069,6 @@
                 "roave/security-advisories": "dev-latest",
                 "yoast/phpunit-polyfills": "^1.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "classmap": [
@@ -1083,9 +1082,9 @@
             "description": "Bare-bones OpenID Connect client",
             "support": {
                 "issues": "https://github.com/jumbojett/OpenID-Connect-PHP/issues",
-                "source": "https://github.com/jumbojett/OpenID-Connect-PHP/tree/master"
+                "source": "https://github.com/jumbojett/OpenID-Connect-PHP/tree/v1.0.0"
             },
-            "time": "2023-08-01T07:57:54+00:00"
+            "time": "2023-12-13T09:52:12+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1871,15 +1870,15 @@
         },
         {
             "name": "minvws/openid-connect-php-laravel",
-            "version": "v0.0.6",
+            "version": "v0.1.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:minvws/nl-rdo-openid-connect-php-laravel.git",
-                "reference": "091398c8b06c0226c580981699a7219316bd0375"
+                "reference": "0a0ed8d507206977e49363b8908ad52a5ad7fa34"
             },
             "require": {
                 "guzzlehttp/guzzle": "^7.5",
-                "jumbojett/openid-connect-php": "dev-master#c146b71",
+                "jumbojett/openid-connect-php": "^1.0.0",
                 "php": ">=8.1",
                 "web-token/jwt-encryption": "^3.1",
                 "web-token/jwt-encryption-algorithm-aescbc": "^3.1",
@@ -1891,8 +1890,8 @@
                 "orchestra/testbench": "^6.0|^7.0|^8.0",
                 "phpstan/phpstan": "^1.10",
                 "phpunit/phpunit": "^9.6",
-                "slevomat/coding-standard": "^8.8",
-                "squizlabs/php_codesniffer": "^3.7",
+                "slevomat/coding-standard": "^8.14",
+                "squizlabs/php_codesniffer": "^3.8",
                 "vimeo/psalm": "^5.8"
             },
             "type": "library",
@@ -1946,7 +1945,7 @@
                 }
             ],
             "description": "OpenID Connect client for Laravel",
-            "time": "2023-10-11T06:58:46+00:00"
+            "time": "2024-01-02T11:45:54+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2640,16 +2639,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "3.0.34",
+            "version": "3.0.35",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "56c79f16a6ae17e42089c06a2144467acc35348a"
+                "reference": "4b1827beabce71953ca479485c0ae9c51287f2fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/56c79f16a6ae17e42089c06a2144467acc35348a",
-                "reference": "56c79f16a6ae17e42089c06a2144467acc35348a",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/4b1827beabce71953ca479485c0ae9c51287f2fe",
+                "reference": "4b1827beabce71953ca479485c0ae9c51287f2fe",
                 "shasum": ""
             },
             "require": {
@@ -2730,7 +2729,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpseclib/phpseclib/issues",
-                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.34"
+                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.35"
             },
             "funding": [
                 {
@@ -2746,7 +2745,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-11-27T11:13:31+00:00"
+            "time": "2023-12-29T01:59:53+00:00"
         },
         {
             "name": "psr/clock",
@@ -6017,23 +6016,23 @@
         },
         {
             "name": "web-token/jwt-core",
-            "version": "3.2.8",
+            "version": "3.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-token/jwt-core.git",
-                "reference": "2bc6e99a60910d0f495682acd8b23d3eef9865a3"
+                "reference": "2b7277a4837230cf2982a1484643a978d505eae3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-token/jwt-core/zipball/2bc6e99a60910d0f495682acd8b23d3eef9865a3",
-                "reference": "2bc6e99a60910d0f495682acd8b23d3eef9865a3",
+                "url": "https://api.github.com/repos/web-token/jwt-core/zipball/2b7277a4837230cf2982a1484643a978d505eae3",
+                "reference": "2b7277a4837230cf2982a1484643a978d505eae3",
                 "shasum": ""
             },
             "require": {
-                "brick/math": "^0.9|^0.10|^0.11",
+                "brick/math": "^0.9|^0.10|^0.11|^0.12",
                 "ext-json": "*",
                 "ext-mbstring": "*",
-                "paragonie/constant_time_encoding": "^2.4",
+                "paragonie/constant_time_encoding": "^2.6",
                 "php": ">=8.1",
                 "spomky-labs/pki-framework": "^1.0"
             },
@@ -6081,7 +6080,7 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/web-token/jwt-core/tree/3.2.8"
+                "source": "https://github.com/web-token/jwt-core/tree/3.2.9"
             },
             "funding": [
                 {
@@ -6089,20 +6088,20 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-08-23T09:49:09+00:00"
+            "time": "2024-01-04T15:42:08+00:00"
         },
         {
             "name": "web-token/jwt-encryption",
-            "version": "3.2.8",
+            "version": "3.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-token/jwt-encryption.git",
-                "reference": "a16c36d16a00475f6b782340e8c88e70b1e57509"
+                "reference": "ad3e00a26347e5bc55e13f7ff6d588a5ed726609"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-token/jwt-encryption/zipball/a16c36d16a00475f6b782340e8c88e70b1e57509",
-                "reference": "a16c36d16a00475f6b782340e8c88e70b1e57509",
+                "url": "https://api.github.com/repos/web-token/jwt-encryption/zipball/ad3e00a26347e5bc55e13f7ff6d588a5ed726609",
+                "reference": "ad3e00a26347e5bc55e13f7ff6d588a5ed726609",
                 "shasum": ""
             },
             "require": {
@@ -6161,7 +6160,7 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/web-token/jwt-encryption/tree/3.2.8"
+                "source": "https://github.com/web-token/jwt-encryption/tree/3.2.9"
             },
             "funding": [
                 {
@@ -6169,20 +6168,20 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-05-18T16:20:51+00:00"
+            "time": "2024-01-04T15:42:08+00:00"
         },
         {
             "name": "web-token/jwt-encryption-algorithm-aescbc",
-            "version": "3.2.8",
+            "version": "3.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-token/jwt-encryption-algorithm-aescbc.git",
-                "reference": "17da32a21abb19add2b9740ea60d09782df44bc7"
+                "reference": "ce40894eae2fef218eed77045b7dd25b1b8a3d7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-token/jwt-encryption-algorithm-aescbc/zipball/17da32a21abb19add2b9740ea60d09782df44bc7",
-                "reference": "17da32a21abb19add2b9740ea60d09782df44bc7",
+                "url": "https://api.github.com/repos/web-token/jwt-encryption-algorithm-aescbc/zipball/ce40894eae2fef218eed77045b7dd25b1b8a3d7f",
+                "reference": "ce40894eae2fef218eed77045b7dd25b1b8a3d7f",
                 "shasum": ""
             },
             "require": {
@@ -6231,7 +6230,7 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/web-token/jwt-encryption-algorithm-aescbc/tree/3.2.8"
+                "source": "https://github.com/web-token/jwt-encryption-algorithm-aescbc/tree/3.2.9"
             },
             "funding": [
                 {
@@ -6239,24 +6238,24 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-05-18T16:20:51+00:00"
+            "time": "2024-01-02T17:55:33+00:00"
         },
         {
             "name": "web-token/jwt-encryption-algorithm-rsa",
-            "version": "3.2.8",
+            "version": "3.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-token/jwt-encryption-algorithm-rsa.git",
-                "reference": "60376ae765be1c389bf6a6a07d105c3e371a0fdd"
+                "reference": "21f9d6ccd86c5f0630e00d5bb8797c550b3f638c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-token/jwt-encryption-algorithm-rsa/zipball/60376ae765be1c389bf6a6a07d105c3e371a0fdd",
-                "reference": "60376ae765be1c389bf6a6a07d105c3e371a0fdd",
+                "url": "https://api.github.com/repos/web-token/jwt-encryption-algorithm-rsa/zipball/21f9d6ccd86c5f0630e00d5bb8797c550b3f638c",
+                "reference": "21f9d6ccd86c5f0630e00d5bb8797c550b3f638c",
                 "shasum": ""
             },
             "require": {
-                "brick/math": "^0.9|^0.10|^0.11",
+                "brick/math": "^0.9|^0.10|^0.11|^0.12",
                 "ext-openssl": "*",
                 "php": ">=8.1",
                 "symfony/polyfill-mbstring": "^1.12",
@@ -6307,7 +6306,7 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/web-token/jwt-encryption-algorithm-rsa/tree/3.2.8"
+                "source": "https://github.com/web-token/jwt-encryption-algorithm-rsa/tree/3.2.9"
             },
             "funding": [
                 {
@@ -6315,20 +6314,20 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-05-18T16:20:51+00:00"
+            "time": "2024-01-02T17:55:33+00:00"
         },
         {
             "name": "web-token/jwt-key-mgmt",
-            "version": "3.2.8",
+            "version": "3.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-token/jwt-key-mgmt.git",
-                "reference": "3b51eeeff38ac58ee86ec83d073b88b8294b1c7e"
+                "reference": "2a034fdbf5142e39152b62cde066d2e707cfacb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-token/jwt-key-mgmt/zipball/3b51eeeff38ac58ee86ec83d073b88b8294b1c7e",
-                "reference": "3b51eeeff38ac58ee86ec83d073b88b8294b1c7e",
+                "url": "https://api.github.com/repos/web-token/jwt-key-mgmt/zipball/2a034fdbf5142e39152b62cde066d2e707cfacb9",
+                "reference": "2a034fdbf5142e39152b62cde066d2e707cfacb9",
                 "shasum": ""
             },
             "require": {
@@ -6385,7 +6384,7 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/web-token/jwt-key-mgmt/tree/3.2.8"
+                "source": "https://github.com/web-token/jwt-key-mgmt/tree/3.2.9"
             },
             "funding": [
                 {
@@ -6393,7 +6392,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-05-18T16:20:51+00:00"
+            "time": "2024-01-04T15:42:08+00:00"
         },
         {
             "name": "webmozart/assert",
