@@ -7,7 +7,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\YiviController;
 use App\Http\Controllers\PrivacyStatementController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Config;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,15 +18,6 @@ use Illuminate\Support\Facades\Config;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-// Change the language of the page
-Route::get('ChangeLanguage/{locale}', function ($locale) {
-    if (in_array($locale, Config::get('app.locales'))) {
-        session(['locale' => $locale]);
-    }
-    return redirect()->back();
-})->name('changelang');
-
 Route::get('privacy-statement', PrivacyStatementController::class)->name('privacy-statement');
 
 Route::middleware(['guest'])->group(function () {
