@@ -115,10 +115,10 @@
 
             <h2>Uw AVG-rechten, vragen, suggesties of klachten</h2>
             <p>
-                U kunt uw vragen, suggesties of klachten mailen naar <a href="mailto:info-uzi@minvws.nl" target="_top" aria-label="Stuur e-mail naar info-uzi@minvws.nl">info-uzi@minvws.nl</a> onder vermelding van <span class="nowrap">‘UZI-pilot 2'</span>.
+                U kunt uw vragen, suggesties of klachten mailen naar <a href="mailto:info@dezi.nl" target="_top" aria-label="Stuur e-mail naar info@dezi.nl">info@dezi.nl</a> onder vermelding van <span class="nowrap">‘UZI-pilot 2'</span>.
             </p>
             <p>
-                Als u een beroep wilt doen op uw rechten onder de AVG waaronder inzage, correctie of verwijdering van uw persoonsgegevens,  kunt u mailen naar <a href="mailto:info-uzi@minvws.nl" target="_top" aria-label="Stuur e-mail naar info-uzi@minvws.nl">info-uzi@minvws.nl</a> onder vermelding van 'UZI-pilot 2'.
+                Als u een beroep wilt doen op uw rechten onder de AVG waaronder inzage, correctie of verwijdering van uw persoonsgegevens,  kunt u mailen naar <a href="mailto:info@dezi.nl" target="_top" aria-label="Stuur e-mail naar info@dezi.nl">info@dezi.nl</a> onder vermelding van 'UZI-pilot 2'.
             </p>
 
             <h2>Functionaris voor de Gegevensbescherming en Autoriteit Persoonsgegevens</h2>
