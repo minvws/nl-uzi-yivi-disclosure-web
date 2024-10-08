@@ -15,7 +15,7 @@
         "axios": "^1.7.2",
         "laravel-vite-plugin": "^0.8.1",
         "sass": "^1.77.6",
-        "vite": "^4.5.3",
+        "vite": "^4.5.5",
         "vite-plugin-node-polyfills": "^0.22.0"
     }
 }
