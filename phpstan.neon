@@ -9,6 +9,3 @@ parameters:
         - public
         - routes
     level: 8
-    excludePaths:
-        - public/index.php
-        - routes/console.php

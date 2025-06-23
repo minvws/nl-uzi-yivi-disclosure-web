@@ -6,11 +6,6 @@ registries:
     type: npm-registry
     url: https://npm.pkg.github.com
     token: ${{ secrets.REPO_READ_ONLY_TOKEN }}
-  github-minvws:
-    type: git
-    url: https://github.com
-    username: x-access-token
-    password: ${{ secrets.REPO_READ_ONLY_TOKEN }}
 
 updates:
   # Maintain dependencies for GitHub Actions
@@ -54,5 +49,3 @@ updates:
         update-types:
           - "minor"
           - "patch"
-    registries:
-      - github-minvws

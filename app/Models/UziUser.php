@@ -60,7 +60,7 @@ class UziUser implements Authenticatable
             }
         }
         if (count($missingKeys) > 0) {
-            Log::debug("Uzi user missing required fields: " . implode(", ", $missingKeys));
+            Log::error("Uzi user missing required fields: " . implode(", ", $missingKeys));
             throw new UziNoUziNumberException();
         }
 
@@ -135,7 +135,17 @@ class UziUser implements Authenticatable
      */
     public function getAuthPassword(): string
     {
-        throw new RuntimeException("Uzi uses can't have a password");
+        throw new RuntimeException("Uzi users can't have a password");
+    }
+
+    /**
+     * Get the name of the password attribute for the user.
+     *
+     * @return string
+     */
+    public function getAuthPasswordName()
+    {
+        throw new RuntimeException("Uzi users can't have a password");
     }
 
     /**
@@ -172,5 +182,21 @@ class UziUser implements Authenticatable
     public function hasUziId(): bool
     {
         return !empty($this->uziId);
+    }
+
+    public function getDisplayName(): string
+    {
+        if (empty($this->initials) || empty($this->surname)) {
+            return $this->uziId;
+        }
+
+        return $this->initials
+            . ($this->surnamePrefix ? " " . $this->surnamePrefix : "")
+            . " " . $this->surname;
+    }
+
+    public function hasRelations(): bool
+    {
+        return count($this->uras) > 0;
     }
 }

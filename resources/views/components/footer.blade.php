@@ -8,10 +8,5 @@
                 <li><a href="{{ route('home') }}">@lang('About') @lang('YIVI login route')</a></li>
             </ul>
         </nav>
-
-        <!-- <div class="meta">
-            <p>{{ __('Version')}} {{ App\Http\Kernel::applicationVersion() }}
-            </p>
-        </div> -->
     </div>
 </footer>
