@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Http\Controllers\YiviController;
+use App\Services\Yivi\YiviSessionService;
 use Illuminate\Support\ServiceProvider;
 
 class UziServiceProvider extends ServiceProvider
@@ -12,9 +12,9 @@ class UziServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->app->singleton(
-            YiviController::class,
+            YiviSessionService::class,
             function () {
-                return new YiviController(
+                return new YiviSessionService(
                     internalYiviServerUrl: config('yivi.internal_server_url'),
                     internalYiviServerVerifyTls: config('yivi.internal_server_verify_tls'),
                     yiviDisclosurePrefix: config('yivi.disclosure_prefix'),
