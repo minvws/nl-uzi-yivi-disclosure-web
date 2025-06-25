@@ -35,7 +35,7 @@ return [
     'disclosure_prefix' => env('YIVI_DISCLOSURE_PREFIX'),
 
     /**
-     * The validity period (in weeks) for a disclosure session or token.
+     * The validity period (in weeks) for issued credentials.
      * Integer value, default is 9 weeks.
      */
     'validity_period_in_weeks' => (int)env('YIVI_VALIDITY_PERIOD_IN_WEEKS', 9),

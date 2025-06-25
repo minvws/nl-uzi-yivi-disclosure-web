@@ -48,5 +48,6 @@ fi
 # If no .npmrc file found, create one in the home directory and ask for token
 echo "No .npmrc file found in the home directory, current working directory or RUNNER_TEMP directory"
 echo "Creating a new .npmrc file in the home directory and asking for a token"
+echo "A personal access token (classic) with at least read:packages scope is required to access the GitHub registry."
 ask_for_token "$HOME/.npmrc"
 npm ci --ignore-scripts
