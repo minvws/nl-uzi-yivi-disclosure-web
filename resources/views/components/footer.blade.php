@@ -5,7 +5,7 @@
         <nav aria-label="@lang('Footer navigation')">
             <ul>
                 <li><a href="{{ route('privacy-statement') }}">@lang('Privacy statement')</a></li>
-                <li><a href="{{ route('home') }}">@lang('About') @lang('YIVI login route')</a></li>
+                <li><a href="{{ route('home') }}">@lang('About') @lang('Yivi login route')</a></li>
             </ul>
         </nav>
     </div>

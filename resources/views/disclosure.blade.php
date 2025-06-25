@@ -16,8 +16,8 @@
 
 <section class="disclosure">
     <div>
-        <h1>@lang('YIVI login route')</h1>
-        <p>@lang('Below you will find an overview of organizations where you can log in with YIVI. For each organization, you will see the roles associated with your account according to the UZI-register. You can load these details into the YIVI wallet using the provided QR code. For each QR code, a card will be generated in the YIVI app, allowing you to log in to the associated organization. To load the details, click on the "Show QR Code" button. Then scan it using the "Scan QR" function in the YIVI app on your mobile phone.')</p>
+        <h1>@lang('Yivi login route')</h1>
+        <p>@lang('Below you will find an overview of organizations you work for, along with your associated role as registered in the UZI register. For each organization, you can load the details into the Yivi app by clicking the "Show QR code" button. A QR code will then be generated, which you can scan with the Yivi app on your mobile phone using the "Scan QR" function. After that, the Yivi card will be available in the Yivi app and you can use it.')</p>
         <div id="yivi-web-form" class="external-component"></div>
 
         <div class="horizontal-scroll">
@@ -27,7 +27,7 @@
                     <tr>
                         <th scope="col">@lang('Organisation')</th>
                         <th scope="col">@lang('Roles')</th>
-                        <th scope="col">@lang('Load with YIVI')</th>
+                        <th scope="col">@lang('Load with Yivi')</th>
                     </tr>
                 </thead>
                 <tbody>

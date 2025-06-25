@@ -28,7 +28,7 @@
                     <p>Het CIBG treedt onder verantwoordelijkheid van VWS op als beheerder/verstrekker van de UZI-gegevens.<br><a rel="external" href="https://www.uziregister.nl/privacy">Hier</a> leest u hoe uw gegevens beschermd worden bij de verstrekking van uw UZI-gegevens door het CIBG. Deze verstrekking vindt ook plaats bij gebruik van Digid en Yivi, dus niet alleen bij het gebruik van de UZI-pas.</p>
                 </li>
                 <li>
-                    <strong>YIVI</strong>
+                    <strong>Yivi</strong>
                     <p>Yivi is een identiteitsapp van SIDN Business B.V. (onderdeel van Stichting Internet Domeinregistratie Nederland, SIDN). Lees verder onder <a href="#more-about-yivi">Meer over Yivi</a>. SIDN is verantwoordelijk voor verwerken van persoonsgegevens door Yivi. Hier leest u hoe uw gegevens beschermd worden bij het gebruik van Yivi.</p>
                 </li>
             </ul>

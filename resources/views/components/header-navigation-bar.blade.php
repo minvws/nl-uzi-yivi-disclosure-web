@@ -7,7 +7,7 @@
     <div class="collapsing-element">
         <ul>
             <li>
-                <a href="{{ route('yivi-disclosure') }}" @if(\Illuminate\Support\Facades\Route::currentRouteName() === 'yivi-disclosure') aria-current="page" @endif><span class="icon icon-home">Home-icoon</span>@lang('YIVI login route')</a>
+                <a href="{{ route('yivi-disclosure') }}" @if(\Illuminate\Support\Facades\Route::currentRouteName() === 'yivi-disclosure') aria-current="page" @endif><span class="icon icon-home">Home-icoon</span>@lang('Yivi login route')</a>
             </li>
         </ul>
 
