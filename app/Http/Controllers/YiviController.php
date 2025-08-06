@@ -43,7 +43,7 @@ class YiviController extends Controller
         $user = $request->user();
         $ura = $request->getValidatedUra();
 
-        $body = $this->yiviSessionService->buildSessionBody($user, $ura);
+        $body = $this->yiviSessionService->buildIssuanceSessionBody($user, $ura);
 
         $response = $this->yiviSessionService->startSession($body);
         return response()
