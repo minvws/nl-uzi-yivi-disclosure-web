@@ -100,6 +100,9 @@ Configuration options for connecting to the Yivi server are set in `config/yivi.
 - `YIVI_INTERNAL_SERVER_VERIFY_TLS`: Whether to verify TLS certificates when connecting to the Yivi server (default: true).
 - `YIVI_DISCLOSURE_PREFIX`: The full credential ID, built from the scheme manager, issuer ID, and credential ID (e.g., `irma-demo.uzipoc-cibg.uzi-acceptance`).
 - `YIVI_VALIDITY_PERIOD_IN_WEEKS`: The validity period (in weeks) for the issued credentials (default: 9 weeks).
+- `YIVI_AUTHENTICATION_ENABLED`: Set to `true` to enable JWT signing for Yivi session requests. When enabled, requests will be signed using the configured private key and issuer. Set to `false` to send requests without JWT authentication.
+- `YIVI_AUTHENTICATION_JWT_ISSUER`: The value for the JWT `iss` (issuer) claim in signed requests. This must match the requestor name configured on the Yivi server for successful verification.
+- `YIVI_AUTHENTICATION_JWT_PRIVATE_KEY_PATH`: Filesystem path to the private key used for signing JWTs. The corresponding public key should be registered on the Yivi server for signature verification. Keep this file secure.
 
 Refer to the comments in `config/yivi.php` for more details on each setting.
 

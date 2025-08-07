@@ -39,4 +39,34 @@ return [
      * Integer value, default is 9 weeks.
      */
     'validity_period_in_weeks' => (int)env('YIVI_VALIDITY_PERIOD_IN_WEEKS', 9),
+
+    /**
+     * Authentication options for Yivi session requests.
+     */
+    'authentication' => [
+        /**
+         * Enable or disable authentication (JWT signing) for Yivi session requests.
+         *
+         * If enabled, the application will sign session requests with a JWT using the private key specified in
+         * `private_key_path`.
+         *
+         * The documentation can be found at:
+         * https://docs.yivi.app/session-requests/#jwts-signed-session-requests
+         */
+        'enabled' => env('YIVI_AUTHENTICATION_ENABLED', false),
+
+        /**
+         * JWT issuer claim ("iss").
+         *
+         * This should be requestor name, and is used by the Yivi server
+         * to look up the appropriate key to verify the JWT.
+         */
+        'jwt_issuer' => env('YIVI_AUTHENTICATION_JWT_ISSUER', ''),
+
+        /**
+         * Path to the private key for signed session requests to the Yivi server.
+         */
+        'jwt_private_key_path' => env('YIVI_AUTHENTICATION_JWT_PRIVATE_KEY_PATH'),
+    ],
+
 ];

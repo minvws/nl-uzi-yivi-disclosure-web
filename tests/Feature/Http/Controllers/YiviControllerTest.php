@@ -6,7 +6,7 @@ namespace Tests\Feature\Http\Controllers;
 
 use App\Http\Controllers\YiviController;
 use App\Http\Requests\YiviStartRequest;
-use App\Services\Yivi\YiviSessionBodyDto;
+use App\Services\Yivi\YiviIssuanceSessionRequestDto;
 use App\Services\Yivi\YiviSessionService;
 use Mockery;
 use Tests\TestCase;
@@ -29,7 +29,7 @@ class YiviControllerTest extends TestCase
         $expectedSessionPtr = 'example-session-ptr';
 
         $service = Mockery::mock(YiviSessionService::class);
-        $service->shouldReceive('buildSessionBody')->with($user, $ura)->andReturn($exampleDto);
+        $service->shouldReceive('buildIssuanceSessionBody')->with($user, $ura)->andReturn($exampleDto);
         $service->shouldReceive('startSession')->with($exampleDto)->andReturn([
             'sessionPtr' => $expectedSessionPtr,
             'somethingElse' => 'irrelevant data',
@@ -45,10 +45,9 @@ class YiviControllerTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
-    protected function getExampleYiviSessionBodyDto(): YiviSessionBodyDto
+    protected function getExampleYiviSessionBodyDto(): YiviIssuanceSessionRequestDto
     {
-        return new YiviSessionBodyDto(
-            context: 'https://irma.app/ld/request/issuance/v2',
+        return new YiviIssuanceSessionRequestDto(
             credential: 'yivi-disclosure-',
             revocationKey: 'uziId-123-ura-456',
             validity: 1234567890,
