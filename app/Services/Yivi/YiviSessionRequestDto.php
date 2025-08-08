@@ -18,11 +18,6 @@ readonly class YiviSessionRequestDto
     ) {
     }
 
-    public function getSubject(): string
-    {
-        return YiviSessionRequestContextEnum::mapToSubject($this->context);
-    }
-
     /**
      * Convert the DTO to an array representation suitable for JSON serialization.
      *
@@ -42,5 +37,23 @@ readonly class YiviSessionRequestDto
     public function toJson(): string
     {
         return json_encode($this->toArray(), JSON_THROW_ON_ERROR);
+    }
+
+    /**
+     * Convert the DTO to the payload for the signed JWT.
+     *
+     * This method prepares the payload according to the Yivi documentation for signed session requests.
+     * Documentation: https://docs.yivi.app/session-requests/#jwts-signed-session-requests
+     *
+     * @return array<mixed>
+     */
+    public function toSignedPayloadArray(): array
+    {
+        return [
+            'sub' => YiviSessionRequestContextEnum::mapToSubject($this->context),
+            YiviSessionRequestContextEnum::mapToRequestFieldName($this->context) => [
+                'request' => $this->toArray(),
+            ],
+        ];
     }
 }
