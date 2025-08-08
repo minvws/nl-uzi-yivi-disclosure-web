@@ -92,10 +92,7 @@ class YiviSessionService
         $jwtPayload = [
             'iss' => $this->authenticationJwtIssuer,
             'iat' => time(),
-            'sub' => $body->getSubject(),
-            'sprequest' => [
-                'request' => $body->toArray(),
-            ],
+            ...$body->toSignedPayloadArray(),
         ];
 
         $jwtBuilder = new JWSBuilder(

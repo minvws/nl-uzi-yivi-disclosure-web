@@ -114,7 +114,7 @@ class YiviSessionServiceTest extends TestCase
             $this->assertNotEmpty($decodedPayload['iat']);
             $this->assertEquals('issue_request', $decodedPayload['sub']);
             $this->assertEquals($expectedIssuer, $decodedPayload['iss']);
-            $this->assertEquals($dto->toArray(), $decodedPayload['sprequest']['request']);
+            $this->assertEquals($dto->toArray(), $decodedPayload['iprequest']['request']);
 
             // Check if the JWT is signed with the expected key
             $this->assertTrue($this->jwsSignatureMatchesPublicKey($body, $publicJWK));
