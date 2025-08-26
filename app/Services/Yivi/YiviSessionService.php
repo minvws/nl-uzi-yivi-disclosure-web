@@ -61,7 +61,7 @@ class YiviSessionService
     {
         if ($this->authenticationEnabled) {
             $payload = $this->signSessionRequest($body);
-            $contentType = 'application/jose';
+            $contentType = 'text/plain';
         } else {
             $payload = $body->toJson();
             $contentType = 'application/json';
