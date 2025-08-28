@@ -71,8 +71,8 @@ jobs:
         run: chmod -R 777 storage bootstrap/cache
       - name: Execute tests (Unit and Feature)
         run: vendor/bin/phpunit --log-junit=reports/report-phpunit.xml --coverage-clover=reports/coverage-phpunit.xml
-      - name: Run SonarCloud scanner
+      - name: Run SonarQube scan
         if: ${{ matrix.php_version == env.CURRENTLY_USED_PHP_VERSION }}
-        uses: minvws/nl-irealisatie-generic-pipelines/.github/actions/sonarcloud@main
+        uses: minvws/action-sonarqube@v1
         with:
           sonar-token: ${{ secrets.SONAR_TOKEN }}
