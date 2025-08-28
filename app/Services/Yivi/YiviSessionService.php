@@ -37,7 +37,7 @@ class YiviSessionService
         protected bool $authenticationEnabled,
         #[Config('yivi.authentication.jwt_issuer')]
         protected string $authenticationJwtIssuer = '',
-        #[JWKFromConfig('yivi.authentication_private_key_path')]
+        #[JWKFromConfig('yivi.authentication.jwt_private_key_path')]
         protected ?JWK $authenticationJwtPrivateKey = null,
     ) {
         if ($this->authenticationEnabled && !$this->authenticationJwtPrivateKey) {
@@ -61,7 +61,7 @@ class YiviSessionService
     {
         if ($this->authenticationEnabled) {
             $payload = $this->signSessionRequest($body);
-            $contentType = 'application/jose';
+            $contentType = 'text/plain';
         } else {
             $payload = $body->toJson();
             $contentType = 'application/json';

@@ -104,7 +104,7 @@ class YiviSessionServiceTest extends TestCase
             }
 
             // Check if the request body matches the expected signed data
-            $this->assertTrue($request->hasHeader('Content-Type', 'application/jose'));
+            $this->assertTrue($request->hasHeader('Content-Type', 'text/plain'));
 
             // Check if the payload of the jwt contains at least the issuer, issued at and subject
             $body = $request->body();
