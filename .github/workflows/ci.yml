@@ -13,7 +13,7 @@ env:
 jobs:
   validate_npm:
     name: Build & validate npm
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     env:
       node_version: '22'
     steps:
@@ -31,7 +31,7 @@ jobs:
 
   validate_php:
     name: Validate PHP
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         php_version: [ '8.3', '8.4' ]
