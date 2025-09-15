@@ -48,7 +48,7 @@ return [
          * Enable or disable authentication (JWT signing) for Yivi session requests.
          *
          * If enabled, the application will sign session requests with a JWT using the private key specified in
-         * `private_key_path`.
+         * `jwt_private_key_path`.
          *
          * The documentation can be found at:
          * https://docs.yivi.app/session-requests/#jwts-signed-session-requests
