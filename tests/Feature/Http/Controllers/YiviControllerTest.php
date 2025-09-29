@@ -27,11 +27,19 @@ class YiviControllerTest extends TestCase
         $exampleDto = $this->getExampleYiviSessionBodyDto();
 
         $expectedSessionPtr = 'example-session-ptr';
+        $expectedFrontendRequest = [
+            'authorization' => 'some-token',
+            'pairingHint' => true,
+            'minProtocolVersion' => "1.0",
+            'maxProtocolVersion' => "2.0",
+        ];
 
         $service = Mockery::mock(YiviSessionService::class);
         $service->shouldReceive('buildIssuanceSessionBody')->with($user, $ura)->andReturn($exampleDto);
         $service->shouldReceive('startSession')->with($exampleDto)->andReturn([
             'sessionPtr' => $expectedSessionPtr,
+            'frontendRequest' => $expectedFrontendRequest,
+            'token' => 'some-requestor-token',
             'somethingElse' => 'irrelevant data',
         ]);
 
@@ -41,7 +49,10 @@ class YiviControllerTest extends TestCase
         $response = $controller->start($request);
 
         // Assert
-        $this->assertEquals(['sessionPtr' => $expectedSessionPtr], $response->getData(true));
+        $this->assertEquals([
+            'sessionPtr' => $expectedSessionPtr,
+            'frontendRequest' => $expectedFrontendRequest
+        ], $response->getData(true));
         $this->assertEquals(200, $response->getStatusCode());
     }
 

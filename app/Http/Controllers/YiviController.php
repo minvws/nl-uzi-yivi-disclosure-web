@@ -47,6 +47,6 @@ class YiviController extends Controller
 
         $response = $this->yiviSessionService->startSession($body);
         return response()
-            ->json(["sessionPtr" => $response["sessionPtr"]]);
+            ->json(["sessionPtr" => $response["sessionPtr"], "frontendRequest" => $response["frontendRequest"]]);
     }
 }
