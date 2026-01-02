@@ -15,8 +15,8 @@
         "@privacybydesign/yivi-popup": "^0.2.1",
         "axios": "^1.13.2",
         "laravel-vite-plugin": "^2.0.1",
-        "sass": "^1.94.2",
-        "vite": "^7.2.6",
+        "sass": "^1.97.1",
+        "vite": "^7.3.0",
         "vite-plugin-node-polyfills": "^0.24.0",
         "concurrently": "^9.2.1"
     }
