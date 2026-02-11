@@ -13,7 +13,7 @@
         "@privacybydesign/yivi-core": "^0.2.1",
         "@privacybydesign/yivi-css": "^0.2.1",
         "@privacybydesign/yivi-popup": "^0.2.1",
-        "axios": "^1.13.2",
+        "axios": "^1.13.5",
         "laravel-vite-plugin": "^2.0.1",
         "sass": "^1.97.2",
         "vite": "^7.3.1",
